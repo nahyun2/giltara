@@ -1,0 +1,69 @@
+[
+  {
+    "id": "sample-a-101",
+    "program": "샘플 프로그램 A",
+    "episode": 101,
+    "city": "강릉",
+    "title": "바닷바람 맞으며 걷는 강릉 시장·호수 코스",
+    "summary": "시장 구경으로 시작해 호숫가 산책과 바다 산책으로 마무리하는 여유로운 하루",
+    "places": [
+      { "order": 1, "name": "강릉 중앙시장", "category": "market", "district": "강릉시 성남동" },
+      { "order": 2, "name": "경포호수", "category": "nature", "district": "강릉시 저동" },
+      { "order": 3, "name": "안목해변 카페거리", "category": "cafe", "district": "강릉시 견소동" }
+    ]
+  },
+  {
+    "id": "sample-b-205",
+    "program": "샘플 프로그램 B",
+    "episode": 205,
+    "city": "강릉",
+    "title": "옛 골목과 고택을 따라가는 강릉 명주동 산책",
+    "summary": "오래된 골목과 고택을 천천히 둘러보고 따뜻한 순두부 한 그릇으로 쉬어 가는 길",
+    "places": [
+      { "order": 1, "name": "명주동 골목", "category": "culture", "district": "강릉시 명주동" },
+      { "order": 2, "name": "오죽헌", "category": "culture", "district": "강릉시 죽헌동" },
+      { "order": 3, "name": "초당순두부마을", "category": "food", "district": "강릉시 초당동" },
+      { "order": 4, "name": "경포해변", "category": "nature", "district": "강릉시 안현동" }
+    ]
+  },
+  {
+    "id": "sample-a-118",
+    "program": "샘플 프로그램 A",
+    "episode": 118,
+    "city": "전주",
+    "title": "한옥 지붕 아래 쉬어 가는 전주 한옥마을 코스",
+    "summary": "한옥마을 돌담길을 걷고 남부시장에서 전주 비빔밥으로 든든하게 채우는 하루",
+    "places": [
+      { "order": 1, "name": "전주 한옥마을", "category": "culture", "district": "전주시 완산구 풍남동" },
+      { "order": 2, "name": "경기전", "category": "culture", "district": "전주시 완산구 풍남동" },
+      { "order": 3, "name": "남부시장", "category": "market", "district": "전주시 완산구 전동" }
+    ]
+  },
+  {
+    "id": "sample-b-231",
+    "program": "샘플 프로그램 B",
+    "episode": 231,
+    "city": "경주",
+    "title": "천년 고도의 밤 풍경을 만나는 경주 유적 코스",
+    "summary": "넓은 고분 공원을 걷고 연못에 비친 야경까지 감상하는 경주 대표 나들이",
+    "places": [
+      { "order": 1, "name": "대릉원", "category": "culture", "district": "경주시 황남동" },
+      { "order": 2, "name": "황리단길", "category": "cafe", "district": "경주시 황남동" },
+      { "order": 3, "name": "첨성대", "category": "culture", "district": "경주시 인왕동" },
+      { "order": 4, "name": "동궁과 월지", "category": "nature", "district": "경주시 인왕동" }
+    ]
+  },
+  {
+    "id": "sample-a-124",
+    "program": "샘플 프로그램 A",
+    "episode": 124,
+    "city": "경주",
+    "title": "호숫가 산책과 경주 한정식으로 채우는 보문 코스",
+    "summary": "평평한 호숫가 길을 천천히 걷고 정갈한 한정식으로 마무리하는 편안한 일정",
+    "places": [
+      { "order": 1, "name": "보문호수", "category": "nature", "district": "경주시 신평동" },
+      { "order": 2, "name": "경주 한정식 거리", "category": "food", "district": "경주시 북군동" },
+      { "order": 3, "name": "불국사", "category": "culture", "district": "경주시 진현동" }
+    ]
+  }
+]
