@@ -5,7 +5,7 @@ export const PLACE_CATEGORY_LABEL: Record<PlaceCategory, string> = {
   market: '시장',
   food: '음식점',
   nature: '자연',
-  culture: '문화유적',
+  culture: '문화·체험',
   cafe: '카페',
 }
 
