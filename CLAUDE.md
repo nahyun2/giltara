@@ -41,7 +41,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 명령어
 
-- `npm run dev` — Vite 개발 서버 (HMR)
+- `npm run dev` — Vite 개발 서버 (HMR). `api/` 서버 함수는 실행되지 않는다
+- `npx vercel dev` — `api/` 서버 함수까지 함께 실행하는 로컬 서버 (Vercel CLI, devDependency)
 - `npm run build` — `tsc -b`로 타입 검사 후 `vite build`로 `dist/`에 빌드
 - `npm run lint` — ESLint (`eslint.config.js`, flat config)
 - `npm run preview` — 빌드 결과를 로컬에서 확인
@@ -65,7 +66,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### 코드 작성에 영향을 주는 설정
 
 - 진입점: `index.html` → `src/main.tsx` → `src/App.tsx` (`StrictMode`로 렌더링)
-- tsconfig는 프로젝트 참조 구조다. `tsconfig.app.json`은 `src/`, `tsconfig.node.json`은 `vite.config.ts`를 담당한다. 새로 만들 `api/` 폴더는 어느 쪽에도 포함되어 있지 않으므로, 서버 함수를 추가할 때 타입 검사 범위를 따로 정해야 한다.
+- tsconfig는 프로젝트 참조 구조다. `tsconfig.app.json`은 `src/`, `tsconfig.node.json`은 `vite.config.ts`, `tsconfig.api.json`은 `api/`(Vercel 서버 함수)를 담당한다. ESLint도 `api/`는 Node 전역 기준으로 검사한다.
+- 서버 함수는 Web 표준 형식(`export async function GET(request: Request): Promise<Response>`)으로 작성한다.
 - `verbatimModuleSyntax` — 타입만 가져올 때는 `import type`을 쓴다.
 - `erasableSyntaxOnly` — `enum`, `namespace`, 생성자 매개변수 속성을 쓰지 않는다. 대신 유니온 타입이나 일반 객체를 쓴다.
 - `noUnusedLocals` / `noUnusedParameters` — 사용하지 않는 변수·매개변수가 있으면 `npm run build`가 실패한다.
@@ -75,7 +77,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 폴더 구조
 
-새 파일은 이 구조에 맞춰 만든다. `api/`, `services/`, `hooks/`는 아직 없다.
+새 파일은 이 구조에 맞춰 만든다. `services/`, `hooks/`는 아직 없다.
 
 ```
 api/                # Vercel 서버 함수 (노출되면 안 되는 키를 쓰는 외부 호출)
