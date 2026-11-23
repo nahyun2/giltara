@@ -16,6 +16,21 @@
     ]
   },
   {
+    "id": "dongne-389",
+    "program": "동네 한 바퀴",
+    "episode": 389,
+    "city": "여수",
+    "title": "여수 바다와 광장, 시장을 걷는 나들이",
+    "summary": "남산공원과 이순신광장, 여문 문화의 거리, 여서미관광장, 서시장 여정",
+    "places": [
+      { "order": 1, "name": "남산공원", "category": "nature", "district": "여수시 남산동" },
+      { "order": 2, "name": "이순신광장", "category": "culture", "district": "여수시" },
+      { "order": 3, "name": "여문 문화의 거리", "category": "market", "district": "여수시" },
+      { "order": 4, "name": "여서미관광장", "category": "culture", "district": "여수시" },
+      { "order": 5, "name": "여수 서시장", "category": "market", "district": "여수시" }
+    ]
+  },
+  {
     "id": "dongne-388",
     "program": "동네 한 바퀴",
     "episode": 388,
