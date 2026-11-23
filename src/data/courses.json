@@ -5,7 +5,7 @@
     "episode": 392,
     "city": "경주",
     "title": "어제와 오늘이 이어지는 경주 나들이",
-    "summary": "불국사와 금리단길, 봉황대, 성동시장, 양지마을, 척사항을 잇는 길",
+    "summary": "불국사를 거닐고 전통시장과 손명주 마을, 항구까지 둘러보는 경주 하루",
     "places": [
       { "order": 1, "name": "불국사", "category": "culture", "district": "경주시" },
       { "order": 2, "name": "금리단길", "category": "market", "district": "경주시" },
@@ -21,7 +21,7 @@
     "episode": 389,
     "city": "여수",
     "title": "여수 바다와 광장, 시장을 걷는 나들이",
-    "summary": "남산공원과 이순신광장, 여문 문화의 거리, 여서미관광장, 서시장 여정",
+    "summary": "남산공원에서 바다를 보고 광장과 거리, 시장 꿀빵을 만나는 여수 하루",
     "places": [
       { "order": 1, "name": "남산공원", "category": "nature", "district": "여수시 남산동" },
       { "order": 2, "name": "이순신광장", "category": "culture", "district": "여수시" },
@@ -36,7 +36,7 @@
     "episode": 388,
     "city": "영천",
     "title": "산과 강이 빚어낸 풍요로운 영천 나들이",
-    "summary": "조양각과 승마조련센터, 영천한의마을, 한우숯불단지, 돌할매 여정",
+    "summary": "누각과 말, 한방 체험을 거쳐 한우 맛보고 소원 비는 영천 나들이",
     "places": [
       { "order": 1, "name": "조양각", "category": "culture", "district": "영천시" },
       { "order": 2, "name": "운주산 승마조련센터", "category": "culture", "district": "영천시 임고면" },
@@ -51,7 +51,7 @@
     "episode": 386,
     "city": "아산",
     "title": "따뜻한 온천과 옛 마을을 걷는 아산 나들이",
-    "summary": "족욕 체험장과 외암민속마을, 온양민속박물관, 곡교천 은행나무길 여정",
+    "summary": "온천 족욕 뒤 옛 돌담 마을과 유물을 보고 은행나무길을 걷는 아산 하루",
     "places": [
       { "order": 1, "name": "온양온천역 족욕 체험장", "category": "culture", "district": "아산시" },
       { "order": 2, "name": "외암민속마을", "category": "culture", "district": "아산시" },
@@ -65,7 +65,7 @@
     "episode": 385,
     "city": "철원",
     "title": "한탄강 절경과 평화의 길을 걷는 철원 나들이",
-    "summary": "고석정, 대마리 마을, 직탕폭포, 백마고지 평화의 길 여정",
+    "summary": "고석정 통통배를 타고 폭포와 들녘을 본 뒤 평화의 길을 걷는 철원 하루",
     "places": [
       { "order": 1, "name": "고석정", "category": "nature", "district": "철원군" },
       { "order": 2, "name": "대마리 마을", "category": "culture", "district": "철원군 대마리" },
@@ -79,7 +79,7 @@
     "episode": 371,
     "city": "서울",
     "title": "과거와 오늘이 함께하는 송파구 나들이",
-    "summary": "고분군과 공원, 옛 골목과 상가, 전통시장을 따라 걷는 송파구 하루",
+    "summary": "백제 돌무지무덤과 공원 숲을 보고 옛 상가와 시장을 걷는 송파구 하루",
     "places": [
       { "order": 1, "name": "석촌동 고분군", "category": "culture", "district": "송파구 석촌동" },
       { "order": 2, "name": "송리단길", "category": "cafe", "district": "송파구" },
