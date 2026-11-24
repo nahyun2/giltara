@@ -1,6 +1,15 @@
 import type { PlaceCategory } from '../types/course'
 
-export type IconName = PlaceCategory | 'check' | 'pin' | 'arrow' | 'back' | 'tv' | 'logo'
+export type IconName =
+  | PlaceCategory
+  | 'check'
+  | 'pin'
+  | 'arrow'
+  | 'back'
+  | 'phone'
+  | 'map'
+  | 'tv'
+  | 'logo'
 
 /* 24x24 선 아이콘. 항상 글자 라벨과 함께 쓰므로 화면 읽기 프로그램에서는 숨긴다. */
 const PATHS: Record<IconName, string> = {
@@ -13,6 +22,9 @@ const PATHS: Record<IconName, string> = {
   pin: 'M12 21s-6-5.4-6-11a6 6 0 0112 0c0 5.6-6 11-6 11zM12 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z',
   arrow: 'M5 12h14M13 6l6 6-6 6',
   back: 'M19 12H5M11 6l-6 6 6 6',
+  phone:
+    'M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z',
+  map: 'M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14',
   tv: 'M3 7h18v12H3zM8 3l4 4 4-4',
   logo: 'M4 20c4-1 6-4 8-8s4-7 8-8M6 9l2-4 2 4M6 9h4M8 9v3',
 }

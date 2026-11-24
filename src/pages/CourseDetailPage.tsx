@@ -1,16 +1,19 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { Link, useParams } from 'react-router'
+import CourseMap from '../components/CourseMap'
 import Icon from '../components/Icon'
+import PlaceCard from '../components/PlaceCard'
 import { courses } from '../data/courses'
-import { PLACE_CATEGORY_LABEL } from '../types/course'
 
-/**
- * 코스 상세 화면.
- * 임시 화면: 상세 화면 시안(#9)이 나오면 지도와 장소별 버튼을 붙여 다시 만든다.
- */
+/** 코스 상세 화면: 지도 + 방문 순서대로 장소 목록 */
 export default function CourseDetailPage() {
   const { courseId } = useParams()
   const course = courses.find((c) => c.id === courseId)
+
+  const places = useMemo(
+    () => (course ? [...course.places].sort((a, b) => a.order - b.order) : []),
+    [course],
+  )
 
   // 목록에서 내려온 스크롤 위치가 남지 않게 맨 위에서 시작한다
   useEffect(() => {
@@ -36,14 +39,12 @@ export default function CourseDetailPage() {
     )
   }
 
-  const places = [...course.places].sort((a, b) => a.order - b.order)
-
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-page flex-col gap-6 px-4 pt-5 pb-12">
       {backLink}
 
       <header className="flex flex-col gap-2">
-        <p className="flex items-center gap-1.5 text-caption font-bold text-accent">
+        <p className="inline-flex items-center gap-1.5 self-start rounded-lg bg-accent px-3 py-1 text-caption font-bold text-on-color">
           <Icon name="tv" className="size-5" />
           {course.program} {course.episode}회 · {course.city}
         </p>
@@ -51,26 +52,16 @@ export default function CourseDetailPage() {
         <p className="text-body text-text-sub">{course.summary}</p>
       </header>
 
-      <section aria-labelledby="place-list-heading" className="flex flex-col gap-3">
-        <h2 id="place-list-heading" className="text-card-title font-bold text-text">
+      <CourseMap places={places} />
+
+      <section aria-labelledby="place-list-heading" className="flex flex-col gap-4">
+        <h2 id="place-list-heading" className="text-screen-title font-bold text-text">
           가는 순서 <span className="text-primary">{places.length}곳</span>
         </h2>
-        <ol className="flex flex-col gap-3">
+        <ol className="flex flex-col gap-4">
           {places.map((place) => (
-            <li
-              key={place.order}
-              className="flex items-start gap-3 rounded-2xl bg-card p-4 shadow-md"
-            >
-              <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-primary text-body font-bold text-on-color">
-                {place.order}
-              </span>
-              <div className="flex flex-col gap-1">
-                <p className="text-card-title font-bold text-text">{place.name}</p>
-                <p className="flex items-center gap-1.5 text-caption text-text-sub">
-                  <Icon name={place.category} className="size-5" />
-                  {PLACE_CATEGORY_LABEL[place.category]} · {place.address ?? place.district}
-                </p>
-              </div>
+            <li key={place.order}>
+              <PlaceCard place={place} />
             </li>
           ))}
         </ol>

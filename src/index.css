@@ -31,6 +31,7 @@
   --spacing-touch: 48px; /* 칩 등 최소 터치 높이 */
   --spacing-button: 56px; /* 주요 버튼 높이 */
   --spacing-page: 480px; /* 화면 최대 너비 */
+  --spacing-map: 240px; /* 코스 상세 지도 높이 */
 
   --font-sans: "Noto Sans KR", sans-serif;
 }
