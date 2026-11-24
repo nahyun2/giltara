@@ -30,7 +30,10 @@ export type PlaceSearchResult = {
   kakaoId: string
   name: string
   category: string
+  /** 도로명 주소 (없으면 지번 주소) */
   address: string
+  /** 지번 주소. 동·읍·면 이름을 얻을 때 쓴다 */
+  jibunAddress: string
   phone: string
   placeUrl: string
   lat: number
@@ -64,6 +67,7 @@ export async function GET(request: Request): Promise<Response> {
     name: d.place_name,
     category: d.category_name,
     address: d.road_address_name || d.address_name,
+    jibunAddress: d.address_name,
     phone: d.phone,
     placeUrl: d.place_url,
     lat: Number(d.y),
