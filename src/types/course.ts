@@ -18,6 +18,20 @@ export type Place = {
   district: string
   /** 비어 있으면 자리표시를 보여준다. 추후 TourAPI 사진으로 채운다. */
   imageUrl?: string
+
+  /* 아래는 카카오 장소 매칭(#8)으로 채운다. 매칭되지 않은 장소는 비어 있다. */
+  /** 카카오 장소 ID */
+  kakaoId?: string
+  /** 도로명 주소 (없으면 지번 주소) */
+  address?: string
+  /** 위도 */
+  lat?: number
+  /** 경도 */
+  lng?: number
+  /** 원터치 전화용. 카카오에 등록된 번호가 없으면 비어 있다. */
+  phone?: string
+  /** 카카오맵 장소 페이지 */
+  placeUrl?: string
 }
 
 export type Course = {
