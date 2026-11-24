@@ -79,7 +79,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 폴더 구조
 
-새 파일은 이 구조에 맞춰 만든다. `services/`, `hooks/`는 아직 없다.
+새 파일은 이 구조에 맞춰 만든다. `hooks/`는 아직 없다.
 
 ```
 api/                # Vercel 서버 함수 (노출되면 안 되는 키를 쓰는 외부 호출)
