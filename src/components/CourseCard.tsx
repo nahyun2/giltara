@@ -20,7 +20,7 @@ export default function CourseCard({ course }: Props) {
       {/* 1번 장소 사진 */}
       <div className="relative h-56 w-full overflow-hidden rounded-xl bg-chip">
         {first?.imageUrl ? (
-          <img src={first.imageUrl} alt={first.name} className="size-full object-cover" />
+          <img src={first.imageUrl} alt={first.name} loading="lazy" className="size-full object-cover" />
         ) : (
           first && (
             <div className="flex size-full flex-col items-center justify-center gap-1 pb-16 text-text-sub">
@@ -48,6 +48,10 @@ export default function CourseCard({ course }: Props) {
           </div>
         )}
       </div>
+      {/* 관광공사 사진은 출처를 밝혀야 한다 */}
+      {first?.imageUrl && (
+        <p className="-mt-2 text-right text-caption text-text-sub">사진: 한국관광공사</p>
+      )}
 
       {/* 제목·소개 */}
       <div className="flex flex-col gap-1.5">
