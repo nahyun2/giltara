@@ -66,7 +66,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### 코드 작성에 영향을 주는 설정
 
-- 진입점: `index.html` → `src/main.tsx` → `src/App.tsx` (`StrictMode`로 렌더링). 화면 주소는 `App.tsx`의 `Routes`에서 정한다 (`/` 메인, `/course/:courseId` 코스 상세)
+- 진입점: `index.html` → `src/main.tsx` → `src/App.tsx` (`StrictMode`로 렌더링). 화면 주소는 `App.tsx`의 `Routes`에서 정한다 (`/` 메인, `/course/:courseId` 코스 상세, `/course/:courseId/plan` 조건 입력, `/course/:courseId/result` 맞춤 코스). 조건 입력의 단계와 고른 값은 주소 쿼리에 담는다 (`src/hooks/useTripConditions.ts`)
 - `vercel.json`이 `/api/`를 뺀 모든 주소를 `index.html`로 보낸다. 배포에서 상세 화면 주소로 바로 들어가거나 새로고침해도 404가 나지 않게 하기 위함이다
 - tsconfig는 프로젝트 참조 구조다. `tsconfig.app.json`은 `src/`, `tsconfig.node.json`은 `vite.config.ts`, `tsconfig.api.json`은 `api/`(Vercel 서버 함수)를 담당한다. ESLint도 `api/`는 Node 전역 기준으로 검사한다.
 - 서버 함수는 Web 표준 형식(`export async function GET(request: Request): Promise<Response>`)으로 작성한다.
@@ -79,7 +79,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 폴더 구조
 
-새 파일은 이 구조에 맞춰 만든다. `hooks/`는 아직 없다.
+새 파일은 이 구조에 맞춰 만든다.
 
 ```
 api/                # Vercel 서버 함수 (노출되면 안 되는 키를 쓰는 외부 호출)
