@@ -58,8 +58,14 @@ export default function CourseMap({ places }: Props) {
           strokeStyle: 'shortdash',
         })
 
+        // 가까운 장소의 마커가 겹치면 앞 순서(출발점)가 위에 보이게 한다
         positioned.forEach((p, i) => {
-          new maps.CustomOverlay({ map, position: path[i], content: createMarker(p.order), zIndex: 1 })
+          new maps.CustomOverlay({
+            map,
+            position: path[i],
+            content: createMarker(p.order),
+            zIndex: positioned.length - i,
+          })
         })
 
         if (path.length > 1) {

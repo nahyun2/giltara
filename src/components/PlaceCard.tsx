@@ -14,7 +14,6 @@ export default function PlaceCard({ place }: Props) {
   const nameId = useId()
   // 카카오가 http 주소를 주므로 https로 연다
   const placeUrl = place.placeUrl?.replace(/^http:/, 'https:')
-  const buttonCount = (place.phone ? 1 : 0) + (placeUrl ? 1 : 0)
 
   return (
     <article
@@ -31,15 +30,17 @@ export default function PlaceCard({ place }: Props) {
         </h3>
       </div>
 
-      <p className="flex flex-wrap items-center gap-x-1.5 text-caption text-text-sub">
-        <Icon name={place.category} className="size-5 text-primary" />
-        <span>{PLACE_CATEGORY_LABEL[place.category]}</span>
-        <span aria-hidden="true">·</span>
-        <span>{place.address ?? place.district}</span>
-      </p>
+      <div className="flex flex-col gap-1 text-caption text-text-sub">
+        <p className="flex items-center gap-1.5">
+          <Icon name={place.category} className="size-5 text-primary" />
+          {PLACE_CATEGORY_LABEL[place.category]}
+        </p>
+        <p>{place.address ?? place.district}</p>
+      </div>
 
-      {buttonCount > 0 && (
-        <div className={`grid gap-2.5 ${buttonCount === 2 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+      {/* 좁은 화면에서도 글자가 줄바꿈되지 않게 버튼은 한 줄에 하나씩 둔다 */}
+      {(place.phone || placeUrl) && (
+        <div className="flex flex-col gap-2.5">
           {place.phone && (
             <a href={`tel:${place.phone}`} aria-describedby={nameId} className={SUB_BUTTON}>
               <Icon name="phone" className="size-5" />
