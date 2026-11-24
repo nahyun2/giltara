@@ -17,7 +17,23 @@
         "lat": 35.78991466172384,
         "lng": 129.3318426090494,
         "phone": "054-746-9913",
-        "placeUrl": "http://place.map.kakao.com/12760573"
+        "placeUrl": "http://place.map.kakao.com/12760573",
+        "tourContentId": "126166",
+        "barrierFree": {
+          "wheelchair": "휠체어 무료 대여 가능함(8대)",
+          "route": "주출입구에서 대웅전까지 경사로가 설치되어 있음장애인 탑승차량은 매표소 앞까지 차량접근 가능함",
+          "restroom": "장애인 화장실 있음(주차장과 불국사 내에 각 1곳씩(1.8mx1.8m))",
+          "parking": "장애인 주차구역이 있음(주출입구 근처)"
+        },
+        "pet": {
+          "allowance": "partial",
+          "notes": [
+            "배변봉투 지참 및 배변처리 필수",
+            "불국사 사찰 내부의 경우 반려동물 동반 입장 제한",
+            "불국사 인근의 불국공원의 경우 반려동물과 함께 산책 가능"
+          ]
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/70/3506170_image2_1.jpg"
       },
       {
         "order": 2,
@@ -28,7 +44,13 @@
         "address": "경북 경주시 노동동 280-1",
         "lat": 35.844070848531,
         "lng": 129.213552753539,
-        "placeUrl": "http://place.map.kakao.com/122904148"
+        "placeUrl": "http://place.map.kakao.com/122904148",
+        "tourContentId": "2992067",
+        "barrierFree": {
+          "parking": "지상에 5면 있음",
+          "elevator": "엘리베이터 있음"
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/64/2992064_image2_1.jpg"
       },
       {
         "order": 3,
@@ -50,7 +72,15 @@
         "address": "경북 경주시 원화로281번길 11",
         "lat": 35.84534371000188,
         "lng": 129.216354826459,
-        "placeUrl": "http://place.map.kakao.com/7951085"
+        "placeUrl": "http://place.map.kakao.com/7951085",
+        "tourContentId": "990516",
+        "barrierFree": {
+          "route": "출입구까지 턱이 없어 휠체어 접근 가능함",
+          "restroom": "장애인 화장실 있음(공영주차장)",
+          "parking": "장애인 주차장 있음(공영주차장)",
+          "elevator": "엘리베이터 있음(공영주차장)"
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/69/3530969_image2_1.jpg"
       },
       {
         "order": 5,
@@ -94,7 +124,20 @@
         "lat": 34.7394475965836,
         "lng": 127.736049922969,
         "phone": "061-661-1746",
-        "placeUrl": "http://place.map.kakao.com/12107992"
+        "placeUrl": "http://place.map.kakao.com/12107992",
+        "tourContentId": "2612869",
+        "barrierFree": {
+          "route": "출입구까지 턱이 없어 휠체어 접근 가능함",
+          "parking": "장애인 주차장 있음(공영주차장)"
+        },
+        "pet": {
+          "allowance": "all",
+          "notes": [
+            "맹견의 경우, 입마개 착용 필수",
+            "배변봉투 지참 및 배변처리 필수"
+          ]
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/07/3351107_image2_1.jpg"
       },
       {
         "order": 3,
@@ -127,7 +170,12 @@
         "address": "전남광주통합특별시 여수시 서교동 563",
         "lat": 34.74075327387035,
         "lng": 127.72817640367255,
-        "placeUrl": "http://place.map.kakao.com/18558837"
+        "placeUrl": "http://place.map.kakao.com/18558837",
+        "tourContentId": "132069",
+        "barrierFree": {
+          "route": "출입구까지 턱이 없어 휠체어 접근 가능함"
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/67/3580367_image2_1.jpg"
       }
     ]
   },
@@ -148,7 +196,9 @@
         "address": "경북 영천시 문화원길 6",
         "lat": 35.9669812325006,
         "lng": 128.932980251832,
-        "placeUrl": "http://place.map.kakao.com/8447240"
+        "placeUrl": "http://place.map.kakao.com/8447240",
+        "tourContentId": "126932",
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/29/4094529_image2_1.jpg"
       },
       {
         "order": 2,
@@ -160,7 +210,14 @@
         "lat": 36.0322745947555,
         "lng": 128.999032167953,
         "phone": "054-330-6484",
-        "placeUrl": "http://place.map.kakao.com/1711742642"
+        "placeUrl": "http://place.map.kakao.com/1711742642",
+        "tourContentId": "1839066",
+        "barrierFree": {
+          "route": "방문자안내소,야외화장실,실내승마장 경사로 설치 됨",
+          "restroom": "장애인 화장실 있음(장애인 주차구역 앞 야외화장실)",
+          "parking": "장애인 주차장 있음(5대,방문자안내소 앞)"
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/78/3502678_image2_1.jpg"
       },
       {
         "order": 3,
@@ -172,7 +229,16 @@
         "lat": 35.977843810858,
         "lng": 128.922265734884,
         "phone": "054-330-2750",
-        "placeUrl": "http://place.map.kakao.com/167559520"
+        "placeUrl": "http://place.map.kakao.com/167559520",
+        "tourContentId": "2606217",
+        "barrierFree": {
+          "wheelchair": "대여 가능",
+          "route": "출입구까지 턱이 없어 휠체어 접근 가능함",
+          "restroom": "장애인 화장실 있음",
+          "parking": "장애인 주차장 있음",
+          "elevator": "엘리베이터 있음"
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/90/4060190_image2_1.jpg"
       },
       {
         "order": 4,
@@ -195,7 +261,9 @@
         "lat": 35.9397065635503,
         "lng": 129.045854442147,
         "phone": "054-338-8879",
-        "placeUrl": "http://place.map.kakao.com/15918971"
+        "placeUrl": "http://place.map.kakao.com/15918971",
+        "tourContentId": "126933",
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/73/4122873_image2_1.jpg"
       }
     ]
   },
@@ -228,7 +296,23 @@
         "lat": 36.730227051957094,
         "lng": 127.01661346257764,
         "phone": "041-541-0848",
-        "placeUrl": "http://place.map.kakao.com/17112656"
+        "placeUrl": "http://place.map.kakao.com/17112656",
+        "tourContentId": "126001",
+        "barrierFree": {
+          "wheelchair": "대여 가능(5대/주차장 쪽 사무실)",
+          "route": "출입구까지 경사로가 설치되어 있음(완만함)",
+          "restroom": "장애인 화장실 있음",
+          "parking": "장애인 주차장 있음"
+        },
+        "pet": {
+          "allowance": "partial",
+          "notes": [
+            "민박 시설은 동반 불가",
+            "맹견의 경우, 입마개 착용 필수",
+            "배변봉투 지참 및 배변처리 필수"
+          ]
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/59/4071759_image2_1.jpg"
       },
       {
         "order": 3,
@@ -240,7 +324,15 @@
         "lat": 36.7920429855642,
         "lng": 127.00629667236,
         "phone": "041-542-6001",
-        "placeUrl": "http://place.map.kakao.com/15424981"
+        "placeUrl": "http://place.map.kakao.com/15424981",
+        "tourContentId": "130063",
+        "barrierFree": {
+          "wheelchair": "대여 가능(1대/매표소)",
+          "route": "출입구까지 경사로가 설치되어 있음(완만함)",
+          "restroom": "장애인 화장실 있음",
+          "parking": "장애인 주차장 있음(3대/정문 앞)"
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/80/3558580_image2_1.jpg"
       },
       {
         "order": 4,
@@ -251,7 +343,21 @@
         "address": "충남 아산시 염치읍 백암리 502-3",
         "lat": 36.8000400529862,
         "lng": 127.018130026598,
-        "placeUrl": "http://place.map.kakao.com/2057873831"
+        "placeUrl": "http://place.map.kakao.com/2057873831",
+        "tourContentId": "2606725",
+        "barrierFree": {
+          "route": "주 출입구 경사로 완만함",
+          "restroom": "자동문휠체어가 충분히 들어갈 수 있는 공간대변기, 세면대 손잡이 있음 대변기 등받이 있음유아용 보호의자 있음호출벨 있음",
+          "parking": "장애인 주차장 있음(3면)교통약자 주차장 있음(10면)"
+        },
+        "pet": {
+          "allowance": "all",
+          "notes": [
+            "맹견의 경우, 입마개 착용 필수",
+            "배변봉투 지참 및 배변처리 필수"
+          ]
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/67/3098767_image2_1.jpg"
       }
     ]
   },
@@ -273,7 +379,16 @@
         "lat": 38.185262491597896,
         "lng": 127.28795429038924,
         "phone": "033-450-5558",
-        "placeUrl": "http://place.map.kakao.com/8176583"
+        "placeUrl": "http://place.map.kakao.com/8176583",
+        "tourContentId": "2615225",
+        "pet": {
+          "allowance": "all",
+          "notes": [
+            "맹견의 경우, 입마개 착용 필수",
+            "배변봉투 지참 및 배변처리 필수"
+          ]
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/67/3351667_image2_1.jpg"
       },
       {
         "order": 2,
@@ -285,7 +400,17 @@
         "lat": 38.209583838174524,
         "lng": 127.2662648254772,
         "phone": "033-450-5365",
-        "placeUrl": "http://place.map.kakao.com/8074259"
+        "placeUrl": "http://place.map.kakao.com/8074259",
+        "tourContentId": "125653",
+        "pet": {
+          "allowance": "partial",
+          "notes": [
+            "주상절리길, 계곡입수 불가",
+            "맹견의 경우, 입마개 착용 필수",
+            "배변봉투 지참 및 배변처리 필수"
+          ]
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/28/4121328_image2_1.jpg"
       },
       {
         "order": 3,
@@ -296,7 +421,9 @@
         "address": "강원특별자치도 철원군 철원읍 평화로 3591",
         "lat": 38.2697602685392,
         "lng": 127.164964432568,
-        "placeUrl": "http://place.map.kakao.com/12697191"
+        "placeUrl": "http://place.map.kakao.com/12697191",
+        "tourContentId": "3445835",
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/88/3446288_image2_1.jpg"
       }
     ]
   },
@@ -317,7 +444,21 @@
         "address": "서울 송파구 석촌동 248",
         "lat": 37.5023225298382,
         "lng": 127.102190932957,
-        "placeUrl": "http://place.map.kakao.com/10489304"
+        "placeUrl": "http://place.map.kakao.com/10489304",
+        "tourContentId": "127466",
+        "barrierFree": {
+          "route": "출입구까지 단차가 없어 휠체어 접근 가능함",
+          "restroom": "장애인 전용 화장실 있음(비상벨 있음)",
+          "parking": "장애인 전용 주차구역 있음"
+        },
+        "pet": {
+          "allowance": "partial",
+          "notes": [
+            "맹견의 경우, 입마개 착용 필수",
+            "배변봉투 지참 및 배변처리 필수"
+          ]
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/29/4129629_image2_1.jpg"
       },
       {
         "order": 2,
@@ -328,7 +469,9 @@
         "address": "서울 송파구 송파동",
         "lat": 37.5093249452576,
         "lng": 127.110416326514,
-        "placeUrl": "http://place.map.kakao.com/540607897"
+        "placeUrl": "http://place.map.kakao.com/540607897",
+        "tourContentId": "2994877",
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/19/2995119_image2_1.jpg"
       },
       {
         "order": 3,
@@ -339,7 +482,9 @@
         "address": "서울 송파구 오금로 363",
         "lat": 37.502670287177715,
         "lng": 127.13138538549909,
-        "placeUrl": "http://place.map.kakao.com/8491685"
+        "placeUrl": "http://place.map.kakao.com/8491685",
+        "tourContentId": "754063",
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/89/3526789_image2_1.jpg"
       },
       {
         "order": 4,
@@ -361,7 +506,12 @@
         "address": "서울 송파구 방이동 1-1",
         "lat": 37.5117726264435,
         "lng": 127.113632180173,
-        "placeUrl": "http://place.map.kakao.com/18525816"
+        "placeUrl": "http://place.map.kakao.com/18525816",
+        "tourContentId": "2704559",
+        "barrierFree": {
+          "route": "출입구까지 턱이 없어 휠체어 접근 가능함"
+        },
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/70/3474770_image2_1.jpg"
       }
     ]
   }
