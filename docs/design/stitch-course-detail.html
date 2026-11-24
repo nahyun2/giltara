@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24..48,400..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;font-family:'Noto Sans KR',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary": "#ffffff", "secondary-fixed-dim": "#ffb59d", "on-primary-fixed": "#002203", "on-tertiary-fixed": "#2a1700", "inverse-primary": "#91d78a", "inverse-surface": "#303030", "error-container": "#ffdad6", "inverse-on-surface": "#f3f0ef", "surface-dim": "#dcd9d9", "tertiary-container": "#6c4b20", "tertiary-fixed-dim": "#ecbe89", "surface-container-highest": "#e5e2e1", "secondary": "#a33e18", "primary": "#00450d", "on-secondary-fixed": "#390c00", "on-secondary-container": "#701f00", "on-secondary-fixed-variant": "#832701", "surface-container-lowest": "#ffffff", "on-tertiary-container": "#ebbd88", "secondary-container": "#ff8257", "primary-fixed": "#acf4a4", "background": "#fcf9f8", "outline-variant": "#c0c9bb", "on-error": "#ffffff", "error": "#ba1a1a", "outline": "#717a6d", "surface-container": "#f0eded", "surface-container-high": "#eae7e7", "tertiary-fixed": "#ffddb8", "surface-bright": "#fcf9f8", "surface-variant": "#e5e2e1", "on-surface-variant": "#41493e", "on-primary-container": "#90d689", "tertiary": "#52340b", "on-primary-fixed-variant": "#0c5216", "surface": "#fcf9f8", "surface-container-low": "#f6f3f2", "on-secondary": "#ffffff", "on-tertiary-fixed-variant": "#604017", "primary-container": "#1b5e20", "primary-fixed-dim": "#91d78a", "on-background": "#1b1c1c", "on-surface": "#1b1c1c", "on-error-container": "#93000a", "secondary-fixed": "#ffdbd0", "on-tertiary": "#ffffff", "surface-tint": "#2a6b2c" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "2.5rem", "space-sm": "0.75rem", "gutter": "1rem", "space-lg": "1.75rem", "margin": "1.25rem", "space-md": "1.25rem", "space-xs": "0.5rem" }, fontFamily: { "headline-xl-mobile": ["Noto Sans"], "label-md": ["Noto Sans"], "headline-md": ["Noto Sans"], "body-md": ["Noto Sans"], "label-lg": ["Noto Sans"], "headline-xl": ["Noto Sans"], "headline-lg": ["Noto Sans"], "headline-lg-mobile": ["Noto Sans"], "body-lg": ["Noto Sans"], "button-text": ["Noto Sans"] }, fontSize: { "headline-xl-mobile": ["26px", { lineHeight: "38px", fontWeight: "700" }], "label-md": ["16px", { lineHeight: "24px", fontWeight: "500" }], "headline-md": ["20px", { lineHeight: "30px", fontWeight: "700" }], "body-md": ["18px", { lineHeight: "28px", fontWeight: "400" }], "label-lg": ["18px", { lineHeight: "26px", fontWeight: "600" }], "headline-xl": ["32px", { lineHeight: "44px", fontWeight: "700" }], "headline-lg": ["24px", { lineHeight: "36px", fontWeight: "700" }], "headline-lg-mobile": ["22px", { lineHeight: "32px", fontWeight: "700" }], "body-lg": ["20px", { lineHeight: "32px", fontWeight: "500" }], "button-text": ["20px", { lineHeight: "28px", fontWeight: "700" }] } } } }</script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="뒤로 가기" class="w-12 h-12 -ml-space-xs flex items-center justify-center text-on-surface hover:text-primary-container rounded-full" onclick="history.back()"><span class="material-symbols-outlined text-[30px]">arrow_back</span></button><h1 class="font-headline-md text-headline-md text-on-surface truncate max-w-[230px]">Course Detail</h1></div><div class="flex items-center gap-space-xs"><button aria-label="코스 공유하기" class="w-12 h-12 flex items-center justify-center text-on-surface hover:text-primary-container rounded-full"><span class="material-symbols-outlined text-[26px]">share</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full max-w-[480px] mx-auto px-margin pt-16 pb-28 bg-surface"><div class="flex flex-col w-full pb-24">
+<!-- 1. 맨 위 뒤로 가기 바 -->
+<div class="flex items-center -mx-margin px-margin py-space-xs mb-space-sm bg-surface">
+<button aria-label="코스 목록으로 돌아가기" class="flex items-center gap-space-xs text-on-surface hover:text-primary-container min-h-[48px] px-1 py-2 rounded-lg transition-colors" onclick="history.back()" type="button">
+<span class="material-symbols-outlined text-[28px] text-primary">arrow_back</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">코스 목록으로</span>
+</button>
+</div>
+<!-- 2. 코스 소개 영역 -->
+<section class="flex flex-col gap-space-xs mb-space-lg">
+<!-- 방송 배지 -->
+<div class="inline-flex items-center gap-1.5 self-start px-3 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[20px] text-secondary">tv</span>
+<span class="font-label-md text-label-md font-bold text-secondary">동네 한 바퀴 388회 · 영천</span>
+</div>
+<!-- 코스 제목 -->
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface leading-tight mt-1">
+      산과 강이 빚어낸 풍요로운 영천 나들이
+    </h2>
+<!-- 한 줄 소개 -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-[1.6]">
+      누각과 말, 한방 체험을 거쳐 한우 맛보고 소원 비는 영천 나들이
+    </p>
+</section>
+<!-- 3. 지도 영역 -->
+<section class="mb-space-lg">
+<div class="relative w-full h-[240px] rounded-2xl overflow-hidden bg-surface-container shadow-sm border border-stone-200/60 flex flex-col justify-between p-3 select-none">
+<!-- 배경 SVG 지도: 산세, 금호강 물줄기, 주요 길목 도식화 -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" fill="none" preserveaspectratio="none" viewbox="0 0 400 240">
+<!-- 부드러운 산세 등고선 표현 -->
+<path d="M-20 70 Q 70 20, 160 50 T 340 30 T 430 65 L 430 -10 L -20 -10 Z" fill="#e8ebe4" opacity="0.75"></path>
+<path d="M-10 100 Q 120 75, 230 95 T 420 80 L 420 -10 L -10 -10 Z" fill="#dfe5db" opacity="0.5"></path>
+<!-- 금호강 물줄기 (자연스러운 곡선 강줄기) -->
+<path d="M-20 180 C 80 170, 130 140, 200 145 C 270 150, 310 185, 420 170" stroke="#c8dbe3" stroke-linecap="round" stroke-linejoin="round" stroke-width="22"></path>
+<path d="M-20 180 C 80 170, 130 140, 200 145 C 270 150, 310 185, 420 170" stroke="#b2cee0" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></path>
+<!-- 코스 연결 점선 경로: 1 -> 2 -> 3 -> 4 -> 5 -->
+<path d="M 85 140 Q 130 100, 175 75 Q 230 85, 260 115 Q 235 155, 205 185 Q 240 215, 290 205" stroke="#1b5e20" stroke-dasharray="7 5" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<!-- 지도 내부 노드 및 텍스트 마커들 -->
+<div class="relative w-full h-full pointer-events-none">
+<!-- 1번 조양각 -->
+<div class="absolute" style="left: 14%; top: 48%;">
+<div class="flex items-center gap-1.5 -translate-x-3 -translate-y-3">
+<span class="w-[32px] h-[32px] rounded-full bg-primary-container text-on-primary font-bold text-[16px] flex items-center justify-center shadow-md">1</span>
+<span class="font-label-md text-label-md font-bold text-on-surface bg-surface-container-lowest/95 px-2 py-0.5 rounded shadow-sm">조양각</span>
+</div>
+</div>
+<!-- 2번 운주산 승마 -->
+<div class="absolute" style="left: 36%; top: 20%;">
+<div class="flex items-center gap-1.5 -translate-x-3 -translate-y-3">
+<span class="w-[32px] h-[32px] rounded-full bg-primary-container text-on-primary font-bold text-[16px] flex items-center justify-center shadow-md">2</span>
+<span class="font-label-md text-label-md font-bold text-on-surface bg-surface-container-lowest/95 px-2 py-0.5 rounded shadow-sm">운주산 승마</span>
+</div>
+</div>
+<!-- 3번 한의마을 -->
+<div class="absolute" style="left: 57%; top: 38%;">
+<div class="flex items-center gap-1.5 -translate-x-3 -translate-y-3">
+<span class="w-[32px] h-[32px] rounded-full bg-primary-container text-on-primary font-bold text-[16px] flex items-center justify-center shadow-md">3</span>
+<span class="font-label-md text-label-md font-bold text-on-surface bg-surface-container-lowest/95 px-2 py-0.5 rounded shadow-sm">한의마을</span>
+</div>
+</div>
+<!-- 4번 한우단지 -->
+<div class="absolute" style="left: 44%; top: 68%;">
+<div class="flex items-center gap-1.5 -translate-x-3 -translate-y-3">
+<span class="w-[32px] h-[32px] rounded-full bg-primary-container text-on-primary font-bold text-[16px] flex items-center justify-center shadow-md">4</span>
+<span class="font-label-md text-label-md font-bold text-on-surface bg-surface-container-lowest/95 px-2 py-0.5 rounded shadow-sm">한우단지</span>
+</div>
+</div>
+<!-- 5번 돌할매 -->
+<div class="absolute" style="left: 65%; top: 76%;">
+<div class="flex items-center gap-1.5 -translate-x-3 -translate-y-3">
+<span class="w-[32px] h-[32px] rounded-full bg-primary-container text-on-primary font-bold text-[16px] flex items-center justify-center shadow-md">5</span>
+<span class="font-label-md text-label-md font-bold text-on-surface bg-surface-container-lowest/95 px-2 py-0.5 rounded shadow-sm">돌할매</span>
+</div>
+</div>
+</div>
+<!-- 지도 우측 하단 라벨 -->
+<div class="self-end z-10">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-lowest/95 shadow-sm text-on-surface-variant font-label-md text-label-md font-medium">
+<span class="material-symbols-outlined text-[18px] text-primary">map</span>
+<span>영천시 코스 지도</span>
+</span>
+</div>
+</div>
+</section>
+<!-- 4. 가는 순서 5곳 섹션 -->
+<section class="flex flex-col gap-4">
+<!-- 섹션 헤더 -->
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-[28px] text-primary-container" style="font-variation-settings: 'FILL' 1;">format_list_numbered</span>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">가는 순서 5곳</h3>
+</div>
+<!-- 카드 1: 조양각 -->
+<article class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm border border-stone-200/60 flex flex-col gap-3.5">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 min-w-[36px] rounded-full bg-primary-container text-on-primary font-bold text-[18px] flex items-center justify-center">1</span>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface truncate">조양각</h4>
+</div>
+<div class="flex items-center flex-wrap gap-x-1.5 gap-y-1 font-label-md text-label-md font-medium text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-primary-container">account_balance</span>
+<span>문화·체험</span>
+<span>·</span>
+<span>경북 영천시 문화원길 6</span>
+</div>
+<div class="pt-1">
+<a class="w-full h-12 rounded-lg bg-surface-container-lowest border-[1.5px] border-primary-container text-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 active:bg-surface-container transition-colors" href="https://map.kakao.com/link/search/영천 조양각" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span>카카오맵에서 보기</span>
+</a>
+</div>
+</article>
+<!-- 카드 2: 운주산 승마조련센터 -->
+<article class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm border border-stone-200/60 flex flex-col gap-3.5">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 min-w-[36px] rounded-full bg-primary-container text-on-primary font-bold text-[18px] flex items-center justify-center">2</span>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface truncate">운주산 승마조련센터</h4>
+</div>
+<div class="flex items-center flex-wrap gap-x-1.5 gap-y-1 font-label-md text-label-md font-medium text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-primary-container">nature_people</span>
+<span>문화·체험</span>
+<span>·</span>
+<span>경북 영천시 임고면 승마휴양림길 62-29</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<a class="h-12 rounded-lg bg-surface-container-lowest border-[1.5px] border-primary-container text-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5 active:bg-surface-container transition-colors" href="tel:054-330-6484">
+<span class="material-symbols-outlined text-[22px]">call</span>
+<span>전화하기</span>
+</a>
+<a class="h-12 rounded-lg bg-surface-container-lowest border-[1.5px] border-primary-container text-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5 active:bg-surface-container transition-colors" href="https://map.kakao.com/link/search/운주산 승마조련센터" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span>카카오맵에서 보기</span>
+</a>
+</div>
+</article>
+<!-- 카드 3: 영천한의마을 -->
+<article class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm border border-stone-200/60 flex flex-col gap-3.5">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 min-w-[36px] rounded-full bg-primary-container text-on-primary font-bold text-[18px] flex items-center justify-center">3</span>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface truncate">영천한의마을</h4>
+</div>
+<div class="flex items-center flex-wrap gap-x-1.5 gap-y-1 font-label-md text-label-md font-medium text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-primary-container">spa</span>
+<span>문화·체험</span>
+<span>·</span>
+<span>경북 영천시 천문로 485</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<a class="h-12 rounded-lg bg-surface-container-lowest border-[1.5px] border-primary-container text-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5 active:bg-surface-container transition-colors" href="tel:054-330-2750">
+<span class="material-symbols-outlined text-[22px]">call</span>
+<span>전화하기</span>
+</a>
+<a class="h-12 rounded-lg bg-surface-container-lowest border-[1.5px] border-primary-container text-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5 active:bg-surface-container transition-colors" href="https://map.kakao.com/link/search/영천한의마을" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span>카카오맵에서 보기</span>
+</a>
+</div>
+</article>
+<!-- 카드 4: 영천 한우숯불단지 -->
+<article class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm border border-stone-200/60 flex flex-col gap-3.5">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 min-w-[36px] rounded-full bg-primary-container text-on-primary font-bold text-[18px] flex items-center justify-center">4</span>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface truncate">영천 한우숯불단지</h4>
+</div>
+<div class="flex items-center flex-wrap gap-x-1.5 gap-y-1 font-label-md text-label-md font-medium text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-primary-container">restaurant</span>
+<span>음식점</span>
+<span>·</span>
+<span>경북 영천시 도남동 294-1</span>
+</div>
+<div class="pt-1">
+<a class="w-full h-12 rounded-lg bg-surface-container-lowest border-[1.5px] border-primary-container text-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 active:bg-surface-container transition-colors" href="https://map.kakao.com/link/search/영천 한우숯불단지" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span>카카오맵에서 보기</span>
+</a>
+</div>
+</article>
+<!-- 카드 5: 돌할매 -->
+<article class="bg-surface-container-lowest rounded-2xl p-5 shadow-sm border border-stone-200/60 flex flex-col gap-3.5">
+<div class="flex items-center gap-3">
+<span class="w-9 h-9 min-w-[36px] rounded-full bg-primary-container text-on-primary font-bold text-[18px] flex items-center justify-center">5</span>
+<h4 class="font-headline-md text-headline-md font-bold text-on-surface truncate">돌할매</h4>
+</div>
+<div class="flex items-center flex-wrap gap-x-1.5 gap-y-1 font-label-md text-label-md font-medium text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-primary-container">temple_buddhist</span>
+<span>문화·체험</span>
+<span>·</span>
+<span>경북 영천시 북안면 돌할매로 484</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<a class="h-12 rounded-lg bg-surface-container-lowest border-[1.5px] border-primary-container text-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5 active:bg-surface-container transition-colors" href="tel:054-338-8879">
+<span class="material-symbols-outlined text-[22px]">call</span>
+<span>전화하기</span>
+</a>
+<a class="h-12 rounded-lg bg-surface-container-lowest border-[1.5px] border-primary-container text-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-1.5 active:bg-surface-container transition-colors" href="https://map.kakao.com/link/search/영천 돌할매" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span>카카오맵에서 보기</span>
+</a>
+</div>
+</article>
+</section>
+<!-- 5. 화면 맨 아래 고정 버튼 -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-4px_16px_rgba(0,0,0,0.08)] border-t border-stone-200/60 pb-safe">
+<div class="w-full max-w-[480px] mx-auto px-margin py-3">
+<button class="w-full h-14 bg-primary-container hover:bg-primary active:bg-primary text-on-primary font-headline-md text-headline-md font-bold rounded-[14px] flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.99]" onclick="alert('영천 여행 코스 안내를 시작합니다.')" type="button">
+<span class="material-symbols-outlined text-[24px]">luggage</span>
+<span>이 코스로 여행 준비하기</span>
+</button>
+</div>
+</div>
+</div></main><aside class="fixed bottom-0 w-full z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-4px_16px_rgba(0,0,0,0.06)]"><div class="max-w-[480px] mx-auto px-margin py-space-sm flex items-center"><button class="w-full h-[60px] bg-primary-container hover:bg-primary text-on-primary font-button-text text-button-text rounded-lg flex items-center justify-center gap-space-xs shadow-md active:scale-[0.99] transition-all" type="button"><span class="material-symbols-outlined text-[26px]">navigation</span><span>이 코스로 여행 시작하기</span></button></div></aside></body></html>

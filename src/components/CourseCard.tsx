@@ -1,4 +1,5 @@
 import { useId } from 'react'
+import { Link } from 'react-router'
 import { PLACE_CATEGORY_LABEL, type Course } from '../types/course'
 import Icon from './Icon'
 
@@ -77,15 +78,14 @@ export default function CourseCard({ course }: Props) {
         </div>
       )}
 
-      {/* 화면 이동은 코스 상세 화면을 만들 때 연결한다 */}
-      <button
-        type="button"
+      <Link
+        to={`/course/${course.id}`}
         aria-describedby={titleId}
         className="flex h-button w-full items-center justify-center gap-2 rounded-xl bg-primary text-button font-bold text-on-color shadow-md transition-colors hover:bg-primary-dark focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark active:scale-[0.98]"
       >
         이 코스 보기
         <Icon name="arrow" className="size-6" />
-      </button>
+      </Link>
     </article>
   )
 }
