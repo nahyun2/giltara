@@ -1,16 +1,20 @@
-import { useId } from 'react'
+import { useId, type ReactNode } from 'react'
 import { PLACE_CATEGORY_LABEL, type Place } from '../types/course'
 import Icon from './Icon'
 
 type Props = {
   place: Place
+  /** 화면에 보일 순서 번호. 없으면 방송 순서(place.order) */
+  number?: number
+  /** 주소와 버튼 사이에 넣을 내용 (예: 휠체어·반려견 정보) */
+  extra?: ReactNode
 }
 
 const SUB_BUTTON =
   'flex h-touch items-center justify-center gap-2 rounded-xl border-2 border-primary bg-card text-body font-bold text-primary transition-colors hover:bg-bg focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark active:scale-[0.98]'
 
 /** 코스 상세의 장소 카드: 순서 번호, 장소명, 유형·주소, 전화하기·카카오맵 버튼 */
-export default function PlaceCard({ place }: Props) {
+export default function PlaceCard({ place, number, extra }: Props) {
   const nameId = useId()
   // 카카오가 http 주소를 주므로 https로 연다
   const placeUrl = place.placeUrl?.replace(/^http:/, 'https:')
@@ -22,7 +26,7 @@ export default function PlaceCard({ place }: Props) {
     >
       <div className="flex items-center gap-3">
         <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-primary text-body font-bold text-on-color">
-          {place.order}
+          {number ?? place.order}
           <span className="sr-only">번째</span>
         </span>
         <h3 id={nameId} className="text-card-title font-bold text-text">
@@ -37,6 +41,8 @@ export default function PlaceCard({ place }: Props) {
         </p>
         <p>{place.address ?? place.district}</p>
       </div>
+
+      {extra}
 
       {/* 좁은 화면에서도 글자가 줄바꿈되지 않게 버튼은 한 줄에 하나씩 둔다 */}
       {(place.phone || placeUrl) && (

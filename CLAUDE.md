@@ -56,8 +56,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 배포: Vercel (아래 "브랜치와 배포" 참고)
 - 장소 검색·지도: 카카오 API
 - 대중교통 경로: ODsay API
-- 코스 데이터 추출: Gemini API
-- 장소 사진: 한국관광공사 TourAPI (사용 예정, 키 미발급)
+- 코스 데이터 추출(개발 중, AI Studio)·맞춤 코스 추천 이유(`api/course-reason.ts`, `gemini-3.5-flash-lite`): Gemini API. 코스 고르기는 규칙 기반(`src/hooks/useCustomCourse.ts`)이고 Gemini는 문장만 쓴다
+- 장소 사진·휠체어·반려동물 정보: 한국관광공사 TourAPI (국문 관광정보 `KorService2`, 무장애 여행 정보 `KorWithService2`)
 - 화면 이동: React Router 8 (`react-router`에서 import, `BrowserRouter` + `Routes` 선언형)
 
 명시되지 않은 라이브러리를 새로 설치해야 할 때는 먼저 이유를 설명하고 확인을 받는다. 상태관리 라이브러리는 없다.
@@ -66,7 +66,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### 코드 작성에 영향을 주는 설정
 
-- 진입점: `index.html` → `src/main.tsx` → `src/App.tsx` (`StrictMode`로 렌더링). 화면 주소는 `App.tsx`의 `Routes`에서 정한다 (`/` 메인, `/course/:courseId` 코스 상세)
+- 진입점: `index.html` → `src/main.tsx` → `src/App.tsx` (`StrictMode`로 렌더링). 화면 주소는 `App.tsx`의 `Routes`에서 정한다 (`/` 메인, `/course/:courseId` 코스 상세, `/course/:courseId/plan` 조건 입력, `/course/:courseId/result` 맞춤 코스). 조건 입력의 단계와 고른 값은 주소 쿼리에 담는다 (`src/hooks/useTripConditions.ts`)
 - `vercel.json`이 `/api/`를 뺀 모든 주소를 `index.html`로 보낸다. 배포에서 상세 화면 주소로 바로 들어가거나 새로고침해도 404가 나지 않게 하기 위함이다
 - tsconfig는 프로젝트 참조 구조다. `tsconfig.app.json`은 `src/`, `tsconfig.node.json`은 `vite.config.ts`, `tsconfig.api.json`은 `api/`(Vercel 서버 함수)를 담당한다. ESLint도 `api/`는 Node 전역 기준으로 검사한다.
 - 서버 함수는 Web 표준 형식(`export async function GET(request: Request): Promise<Response>`)으로 작성한다.
@@ -79,7 +79,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 폴더 구조
 
-새 파일은 이 구조에 맞춰 만든다. `hooks/`는 아직 없다.
+새 파일은 이 구조에 맞춰 만든다.
 
 ```
 api/                # Vercel 서버 함수 (노출되면 안 되는 키를 쓰는 외부 호출)
@@ -114,8 +114,9 @@ docs/               # 시안, 보류 중인 결정 등 프로젝트 문서
 | `VITE_ODSAY_API_KEY` | 브라우저 (대중교통 경로) | ODsay URI(Web) 키, 등록 도메인에서만 동작 |
 | `KAKAO_REST_API_KEY` | `api/` 서버 함수만 | 노출 금지 |
 | `GEMINI_API_KEY` | `api/` 서버 함수만 | 노출 금지 |
+| `TOUR_API_KEY` | 로컬 데이터 수집(개발 중), 이후 `api/` 서버 함수 | 노출 금지. 공공데이터포털 일반 인증키(계정당 하나, 서비스별 활용신청 필요) |
 
-- 새 키를 추가하면 이 표에 사용 위치를 먼저 적는다. TourAPI 키는 발급 후 추가한다.
+- 새 키를 추가하면 이 표에 사용 위치를 먼저 적는다.
 - `.env`, `.env.local` 파일은 커밋하지 않는다. (`.gitignore`에서 `.env`, `.env.*`를 제외하고 있다.)
 
 ## ODsay 사용 규칙
@@ -167,4 +168,5 @@ docs/               # 시안, 보류 중인 결정 등 프로젝트 문서
 
 - TV 코스 데이터에는 장소명, 지역, 방문 순서 등 사실 정보만 저장한다.
 - 코스 제목·한 줄 소개는 Gemini가 생성하되, 원문에 없는 사실은 쓰지 않는다.
-- 방송 이미지, 영상, 프로그램 로고는 사용하지 않는다. 장소 사진은 TourAPI에서 가져온다.
+- 방송 이미지, 영상, 프로그램 로고는 사용하지 않는다. 장소 사진은 TourAPI에서 가져오고, 화면에 "사진: 한국관광공사"로 출처를 표시한다.
+- 휠체어·반려동물 정보가 없는 장소는 코스에서 빼지 않고 "확인 필요"로 보여준다. 빼는 것은 "동반 불가"처럼 안 된다고 확실히 나온 경우만이다.
