@@ -49,7 +49,7 @@ function Result({ course, conditions }: { course: Course; conditions: TripCondit
   ]
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-page flex-col gap-6 px-4 pt-5 pb-12">
+    <div className="mx-auto flex min-h-screen w-full max-w-page flex-col gap-6 px-4 pt-5 pb-32">
       <Link
         to={`/course/${course.id}/plan?${toSearchParams(conditions, 5)}`}
         className="inline-flex h-touch items-center gap-2 self-start rounded-lg pr-3 text-body font-bold text-primary focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark"
@@ -159,7 +159,18 @@ function Result({ course, conditions }: { course: Course; conditions: TripCondit
         </section>
       )}
 
-      {/* 다음 단계(예약 안내, Sprint 4) 버튼은 상세 화면처럼 화면 아래 고정 자리에 넣는다 */}
+      {/* 이 화면의 주요 행동: 화면 아래에 고정 */}
+      <div className="fixed inset-x-0 bottom-0 bg-card shadow-md">
+        <div className="mx-auto w-full max-w-page px-4 py-3">
+          <Link
+            to={`/course/${course.id}/checklist?${toSearchParams(conditions)}`}
+            className="flex h-button w-full items-center justify-center gap-2 rounded-xl bg-primary text-button font-bold text-on-color shadow-md transition-colors hover:bg-primary-dark focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark active:scale-[0.98]"
+          >
+            가기 전 확인하기
+            <Icon name="arrow" className="size-6" />
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }
