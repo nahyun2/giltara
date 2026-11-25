@@ -56,7 +56,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 배포: Vercel (아래 "브랜치와 배포" 참고)
 - 장소 검색·지도: 카카오 API
 - 대중교통 경로: ODsay API
-- 코스 데이터 추출: Gemini API
+- 코스 데이터 추출(개발 중, AI Studio)·맞춤 코스 추천 이유(`api/course-reason.ts`, `gemini-3.5-flash-lite`): Gemini API. 코스 고르기는 규칙 기반(`src/hooks/useCustomCourse.ts`)이고 Gemini는 문장만 쓴다
 - 장소 사진·휠체어·반려동물 정보: 한국관광공사 TourAPI (국문 관광정보 `KorService2`, 무장애 여행 정보 `KorWithService2`)
 - 화면 이동: React Router 8 (`react-router`에서 import, `BrowserRouter` + `Routes` 선언형)
 
