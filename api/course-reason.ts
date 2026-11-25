@@ -23,6 +23,7 @@ const PET_LABEL: Record<string, string> = {
   none: '반려견 동반 불가',
 }
 const DROP_LABEL: Record<string, string> = {
+  closed: '고른 날짜에 쉬는 날',
   'pet-not-allowed': '반려견 동반 불가',
   'needs-check': '고른 조건에 맞는지 정보 없음',
   far: '다른 장소와 거리가 멂',

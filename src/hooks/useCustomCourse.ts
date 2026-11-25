@@ -9,6 +9,7 @@ import type {
   TripConditions,
 } from '../types/trip'
 import { fetchCourseReason, type CourseReasonInput } from '../services/courseReason'
+import { restDayStatus } from './restDays'
 
 /* ---------- 규칙 기반 코스 고르기 ---------- */
 
@@ -51,17 +52,25 @@ function missingChecks(place: Place, c: TripConditions): CheckItem[] {
   const items: CheckItem[] = []
   if (c.wheelchair && !place.barrierFree) items.push('wheelchair')
   if (c.pet && !place.pet) items.push('pet')
+  if (restDayStatus(place.visitInfo?.restDays, c.date).status === 'check') items.push('rest')
   return items
 }
 
 /**
  * 조건에 맞춰 하루 3~4곳을 고른다. 방송 순서는 바꾸지 않는다.
- * 1. 반려견을 골랐으면 "동반 불가" 장소를 뺀다
- * 2. 4곳이 넘으면 "확인 필요" 장소부터, 그다음 빼면 이동 거리가 가장 많이 줄어드는 장소를 뺀다
+ * 1. 고른 날짜에 확실히 쉬는 장소를 뺀다 (#31)
+ * 2. 반려견을 골랐으면 "동반 불가" 장소를 뺀다
+ * 3. 4곳이 넘으면 "확인 필요" 장소부터, 그다음 빼면 이동 거리가 가장 많이 줄어드는 장소를 뺀다
  */
 export function planCourse(course: Course, c: TripConditions): CustomCourse<Place> {
   let places = [...course.places].sort((a, b) => a.order - b.order)
-  const dropped: { place: Place; reason: DropReason }[] = []
+  const dropped: { place: Place; reason: DropReason; note?: string }[] = []
+
+  for (const p of places) {
+    const rest = restDayStatus(p.visitInfo?.restDays, c.date)
+    if (rest.status === 'closed') dropped.push({ place: p, reason: 'closed', note: rest.note })
+  }
+  places = places.filter((p) => !dropped.some((d) => d.place === p))
 
   if (c.pet) {
     for (const p of places.filter((p) => p.pet?.allowance === 'none')) {
@@ -90,7 +99,14 @@ export function planCourse(course: Course, c: TripConditions): CustomCourse<Plac
 
   const legs = places.slice(1).map((p, i) => toLeg(places[i], p, c.transport))
   const checks = places
-    .map((place) => ({ place, items: missingChecks(place, c) }))
+    .map((place) => {
+      const rest = restDayStatus(place.visitInfo?.restDays, c.date)
+      return {
+        place,
+        items: missingChecks(place, c),
+        restNote: rest.status === 'check' ? rest.note : undefined,
+      }
+    })
     .filter((x) => x.items.length > 0)
 
   return {
@@ -99,6 +115,7 @@ export function planCourse(course: Course, c: TripConditions): CustomCourse<Plac
     totalMinutes: legs.reduce((sum, l) => sum + l.minutes, 0),
     dropped,
     checks,
+    tooFew: places.length < MIN_PLACES && dropped.some((d) => d.reason === 'closed'),
   }
 }
 
