@@ -14,6 +14,8 @@ export type IconName =
   | 'bus'
   | 'wheelchair'
   | 'paw'
+  | 'walk'
+  | 'subway'
   | 'tv'
   | 'logo'
 
@@ -32,6 +34,8 @@ const PATHS: Record<IconName, string> = {
     'M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z',
   map: 'M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14',
   calendar: 'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',
+  walk: 'M12 4.5a1.5 1.5 0 103 0 1.5 1.5 0 10-3 0M10 21l2-6 3 3v3M9 12l2-4 4 2 2 3M11 8l-1 5 2 2M7 21l3-7',
+  subway: 'M12 3c4 0 7 1 7 4v8a3 3 0 01-3 3H8a3 3 0 01-3-3V7c0-3 3-4 7-4zM5 11h14M12 4v7M8.5 14.5h.01M15.5 14.5h.01M7 21l2-3M17 21l-2-3M9.5 21h5',
   people: 'M9 11a3 3 0 100-6 3 3 0 000 6zM3 20a6 6 0 0112 0M16 11a2.5 2.5 0 100-5M17 14a5 5 0 014 6',
   car: 'M4 16V12l2-5h12l2 5v4zM4 12h16M4 16v3h3v-3M17 16v3h3v-3M7.5 14h.01M16.5 14h.01',
   bus: 'M6 3h12a2 2 0 012 2v12H4V5a2 2 0 012-2zM4 11h16M7 17v3M17 17v3M8 14h.01M16 14h.01',
