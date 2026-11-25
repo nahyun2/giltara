@@ -9,6 +9,7 @@ import type {
   TripConditions,
 } from '../types/trip'
 import { fetchCourseReason, type CourseReasonInput } from '../services/courseReason'
+import { getTransitRoute } from '../data/transitRoutes'
 import { restDayStatus } from './restDays'
 
 /* ---------- 규칙 기반 코스 고르기 ---------- */
@@ -40,11 +41,16 @@ function pathKm(places: Place[]): number {
 }
 
 function toLeg(a: Place, b: Place, transport: Transport): Leg {
-  const km = distanceKm(a, b) * ROAD_FACTOR
+  const km = Math.round(distanceKm(a, b) * ROAD_FACTOR * 10) / 10
+  // 대중교통은 저장된 실제 경로(ODsay, #37)가 있으면 그 시간을 쓴다
+  if (transport === 'transit') {
+    const route = getTransitRoute(a.name, b.name)
+    if (route) return { km, minutes: route.totalMinutes, estimated: false, route }
+  }
   const { kmh, extraMinutes } = SPEED[transport]
   // 5분 단위로 올림
   const minutes = Math.max(5, Math.ceil(((km / kmh) * 60 + extraMinutes) / 5) * 5)
-  return { km: Math.round(km * 10) / 10, minutes }
+  return { km, minutes, estimated: true }
 }
 
 /** 고른 조건에 대해 정보가 없는 항목 */

@@ -90,10 +90,19 @@ function Checklist({ course, conditions }: { course: Course; conditions: TripCon
       </header>
 
       {allDone && (
-        <p role="status" className="flex items-center gap-2 rounded-2xl bg-primary p-5 text-body font-bold text-on-color">
-          <Icon name="check" className="size-6 shrink-0" />
-          준비가 끝났어요! 즐거운 여행 되세요.
-        </p>
+        <div className="flex flex-col gap-3 rounded-2xl bg-primary p-5">
+          <p role="status" className="flex items-center gap-2 text-body font-bold text-on-color">
+            <Icon name="check" className="size-6 shrink-0" />
+            준비가 끝났어요! 즐거운 여행 되세요.
+          </p>
+          <Link
+            to={`/course/${course.id}/route?${query}`}
+            className="flex h-button items-center justify-center gap-2 rounded-xl bg-card text-button font-bold text-primary focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-on-color"
+          >
+            가는 길 안내 보기
+            <Icon name="arrow" className="size-6" />
+          </Link>
+        </div>
       )}
 
       {groups.map((group) => (

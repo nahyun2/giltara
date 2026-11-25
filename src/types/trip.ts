@@ -1,3 +1,5 @@
+import type { TransitRoute } from './route'
+
 /** 이동수단 */
 export type Transport = 'car' | 'transit'
 
@@ -47,6 +49,10 @@ export const CHECK_ITEM_LABEL: Record<CheckItem, string> = {
 export type Leg = {
   km: number
   minutes: number
+  /** true면 직선거리로 어림한 시간, false면 저장된 대중교통 경로의 시간 */
+  estimated: boolean
+  /** 대중교통을 골랐고 저장된 경로가 있을 때 (#38) */
+  route?: TransitRoute
 }
 
 /** 조건에 맞춰 고른 하루 코스 */

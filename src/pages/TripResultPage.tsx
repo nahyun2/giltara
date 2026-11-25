@@ -94,7 +94,13 @@ function Result({ course, conditions }: { course: Course; conditions: TripCondit
           가는 순서 <span className="text-primary">{numbered.length}곳</span>
         </h2>
         <p className="-mt-2 text-body text-text-sub">
-          장소 사이 이동은 모두 합쳐 약 <strong className="text-text">{plan.totalMinutes}분</strong>이에요.
+          장소 사이 이동은 모두 합쳐 약 <strong className="text-text">{plan.totalMinutes}분</strong>이에요.{' '}
+          <Link
+            to={`/course/${course.id}/route?${toSearchParams(conditions)}`}
+            className="inline-flex h-touch items-center font-bold text-primary underline underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark"
+          >
+            가는 길 자세히 보기
+          </Link>
         </p>
         {plan.tooFew && (
           <div className="flex flex-col gap-3 rounded-2xl bg-card p-5 shadow-md">
@@ -131,8 +137,17 @@ function Result({ course, conditions }: { course: Course; conditions: TripCondit
               {plan.legs[i] && (
                 <p className="flex items-center gap-2 py-3 pl-6 text-body text-text-sub">
                   <span aria-hidden="true" className="h-8 border-l-2 border-dashed border-primary" />
-                  <Icon name={conditions.transport === 'car' ? 'car' : 'bus'} className="size-5 text-primary" />
-                  {TRANSPORT_LABEL[conditions.transport]}로 약 {plan.legs[i].minutes}분
+                  {plan.legs[i].route?.kind === 'walk' ? (
+                    <>
+                      <Icon name="walk" className="size-5 text-primary" />
+                      걸어서 약 {plan.legs[i].minutes}분
+                    </>
+                  ) : (
+                    <>
+                      <Icon name={conditions.transport === 'car' ? 'car' : 'bus'} className="size-5 text-primary" />
+                      {TRANSPORT_LABEL[conditions.transport]}로 약 {plan.legs[i].minutes}분
+                    </>
+                  )}
                 </p>
               )}
             </li>
