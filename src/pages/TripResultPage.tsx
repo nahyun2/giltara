@@ -49,7 +49,7 @@ function Result({ course, conditions }: { course: Course; conditions: TripCondit
   ]
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-page flex-col gap-6 px-4 pt-5 pb-12">
+    <div className="mx-auto flex min-h-screen w-full max-w-page flex-col gap-6 px-4 pt-5 pb-32">
       <Link
         to={`/course/${course.id}/plan?${toSearchParams(conditions, 5)}`}
         className="inline-flex h-touch items-center gap-2 self-start rounded-lg pr-3 text-body font-bold text-primary focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark"
@@ -96,12 +96,37 @@ function Result({ course, conditions }: { course: Course; conditions: TripCondit
         <p className="-mt-2 text-body text-text-sub">
           장소 사이 이동은 모두 합쳐 약 <strong className="text-text">{plan.totalMinutes}분</strong>이에요.
         </p>
+        {plan.tooFew && (
+          <div className="flex flex-col gap-3 rounded-2xl bg-card p-5 shadow-md">
+            <p className="text-body font-bold text-accent">
+              이 날은 {numbered.length}곳만 갈 수 있어요. 다른 날을 고르면 더 많은 곳에 갈 수 있어요.
+            </p>
+            <Link
+              to={`/course/${course.id}/plan?${toSearchParams(conditions, 1)}&edit=1`}
+              className="flex h-touch items-center justify-center gap-2 rounded-xl border-2 border-primary bg-card text-body font-bold text-primary hover:bg-bg focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark"
+            >
+              <Icon name="calendar" className="size-5" />
+              날짜 바꾸기
+            </Link>
+          </div>
+        )}
         <ol className="flex flex-col">
-          {numbered.map((place, i) => (
+          {numbered.map((place, i) => {
+            const restNote = plan.checks.find((x) => x.place.name === place.name)?.restNote
+            return (
             <li key={place.order} className="flex flex-col">
               <PlaceCard
                 place={place}
-                extra={<AccessInfo place={place} wheelchair={conditions.wheelchair} pet={conditions.pet} />}
+                extra={
+                  <>
+                    {restNote && (
+                      <p className="rounded-xl bg-bg p-4 text-caption font-bold text-accent">
+                        확인 필요 · {restNote}
+                      </p>
+                    )}
+                    <AccessInfo place={place} wheelchair={conditions.wheelchair} pet={conditions.pet} />
+                  </>
+                }
               />
               {plan.legs[i] && (
                 <p className="flex items-center gap-2 py-3 pl-6 text-body text-text-sub">
@@ -111,7 +136,8 @@ function Result({ course, conditions }: { course: Course; conditions: TripCondit
                 </p>
               )}
             </li>
-          ))}
+            )
+          })}
         </ol>
         <p className="text-caption text-text-sub">
           이동 시간은 장소 사이 거리로 어림한 값이에요. 실제 경로와 시간은 여행 당일 안내에서 확인할 수 있어요.
@@ -126,14 +152,25 @@ function Result({ course, conditions }: { course: Course; conditions: TripCondit
           <ul className="flex flex-col gap-1 text-body text-text-sub">
             {plan.dropped.map((d) => (
               <li key={d.place.order}>
-                <strong className="text-text">{d.place.name}</strong> — {DROP_REASON_LABEL[d.reason]}
+                <strong className="text-text">{d.place.name}</strong> — {d.note ?? DROP_REASON_LABEL[d.reason]}
               </li>
             ))}
           </ul>
         </section>
       )}
 
-      {/* 다음 단계(예약 안내, Sprint 4) 버튼은 상세 화면처럼 화면 아래 고정 자리에 넣는다 */}
+      {/* 이 화면의 주요 행동: 화면 아래에 고정 */}
+      <div className="fixed inset-x-0 bottom-0 bg-card shadow-md">
+        <div className="mx-auto w-full max-w-page px-4 py-3">
+          <Link
+            to={`/course/${course.id}/checklist?${toSearchParams(conditions)}`}
+            className="flex h-button w-full items-center justify-center gap-2 rounded-xl bg-primary text-button font-bold text-on-color shadow-md transition-colors hover:bg-primary-dark focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark active:scale-[0.98]"
+          >
+            가기 전 확인하기
+            <Icon name="arrow" className="size-6" />
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }

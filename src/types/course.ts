@@ -36,6 +36,37 @@ export type PetInfo = {
   notes: string[]
 }
 
+/** 문의처 (관광공사 원문에서 전화번호만 따로 뽑음) */
+export type Contact = {
+  /** 예: "매표요금", "송파구청 문화유산과". 없으면 비어 있다 */
+  label?: string
+  phone: string
+}
+
+/** 예약이 꼭 필요한 장소의 안내 */
+export type Reservation = {
+  /** 신청 페이지 */
+  url?: string
+  /** 신청 문의 전화 */
+  phone?: string
+  /** 유의 사항 (원문) */
+  notes: string[]
+}
+
+/** 가기 전에 확인할 이용 정보 (한국관광공사 소개 정보, #30). 원문 문장을 그대로 둔다 */
+export type VisitInfo = {
+  contacts?: Contact[]
+  /** 쉬는 날 원문 (예: "매주 월요일 / 1월 1일 / 설·추석") */
+  restDays?: string
+  /** 이용 시간 원문. 줄바꿈(\n)으로 구분 */
+  hours?: string
+  /** 요금 원문. 줄바꿈(\n)으로 구분 */
+  fee?: string
+  homepage?: string
+  /** 예약이 꼭 필요할 때만 있다 */
+  reservation?: Reservation
+}
+
 export type Place = {
   /** 방문 순서 (1부터) */
   order: number
@@ -65,6 +96,12 @@ export type Place = {
   tourContentId?: string
   barrierFree?: BarrierFree
   pet?: PetInfo
+  visitInfo?: VisitInfo
+}
+
+/** 원터치 전화에 쓸 번호: 카카오 번호, 없으면 관광공사 첫 번째 문의처 */
+export function placePhone(place: Place): string | undefined {
+  return place.phone ?? place.visitInfo?.contacts?.[0]?.phone
 }
 
 export type Course = {
