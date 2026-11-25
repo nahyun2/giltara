@@ -1,0 +1,724 @@
+{
+  "조양각 → 영천한의마을": {
+    "kind": "transit",
+    "totalMinutes": 14,
+    "fare": 1500,
+    "transfers": 0,
+    "walkMeters": 236,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 103
+      },
+      {
+        "kind": "bus",
+        "minutes": 10,
+        "from": "영천보건소",
+        "to": "한의마을건너",
+        "lines": [
+          "241",
+          "320",
+          "241-1",
+          "350",
+          "310",
+          "320-1"
+        ],
+        "stations": 5
+      },
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 133
+      }
+    ]
+  },
+  "금리단길 → 봉황대": {
+    "kind": "walk",
+    "totalMinutes": 10,
+    "meters": 532
+  },
+  "봉황대 → 경주 성동시장": {
+    "kind": "walk",
+    "totalMinutes": 15,
+    "meters": 893
+  },
+  "불국사 → 금리단길": {
+    "kind": "transit",
+    "totalMinutes": 58,
+    "fare": 1450,
+    "transfers": 0,
+    "walkMeters": 599,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 8,
+        "meters": 512
+      },
+      {
+        "kind": "bus",
+        "minutes": 49,
+        "from": "불국사",
+        "to": "신한은행사거리",
+        "lines": [
+          "10"
+        ],
+        "stations": 24
+      },
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 87
+      }
+    ]
+  },
+  "석촌동 고분군 → 송리단길": {
+    "kind": "transit",
+    "totalMinutes": 13,
+    "fare": 1550,
+    "transfers": 0,
+    "walkMeters": 742,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 8,
+        "meters": 548
+      },
+      {
+        "kind": "subway",
+        "minutes": 2,
+        "from": "석촌",
+        "to": "송파나루",
+        "lines": [
+          "수도권 9호선"
+        ],
+        "stations": 1
+      },
+      {
+        "kind": "walk",
+        "minutes": 3,
+        "meters": 194
+      }
+    ]
+  },
+  "송리단길 → 잠실 장미 상가": {
+    "kind": "transit",
+    "totalMinutes": 13,
+    "fare": 1500,
+    "transfers": 0,
+    "walkMeters": 169,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 76
+      },
+      {
+        "kind": "bus",
+        "minutes": 11,
+        "from": "송파초등학교.송파동성당",
+        "to": "잠실중학교",
+        "lines": [
+          "3318"
+        ],
+        "stations": 4
+      },
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 93
+      }
+    ]
+  },
+  "잠실 장미 상가 → 방이 전통시장": {
+    "kind": "transit",
+    "totalMinutes": 17,
+    "fare": 1500,
+    "transfers": 0,
+    "walkMeters": 278,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 34
+      },
+      {
+        "kind": "bus",
+        "minutes": 12,
+        "from": "잠실중학교.장미종합상가",
+        "to": "송파나루역",
+        "lines": [
+          "3318"
+        ],
+        "stations": 5
+      },
+      {
+        "kind": "walk",
+        "minutes": 4,
+        "meters": 244
+      }
+    ]
+  },
+  "온양민속박물관 → 곡교천 은행나무길": {
+    "kind": "transit",
+    "totalMinutes": 16,
+    "fare": 1500,
+    "transfers": 0,
+    "walkMeters": 358,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 145
+      },
+      {
+        "kind": "bus",
+        "minutes": 11,
+        "from": "온양민속박물관건너",
+        "to": "송곡2리 마을길",
+        "lines": [
+          "970",
+          "971",
+          "702",
+          "700"
+        ],
+        "stations": 5
+      },
+      {
+        "kind": "walk",
+        "minutes": 3,
+        "meters": 213
+      }
+    ]
+  },
+  "온양온천역 족욕 체험장 → 외암민속마을": {
+    "kind": "transit",
+    "totalMinutes": 32,
+    "fare": 1500,
+    "transfers": 0,
+    "walkMeters": 900,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 3,
+        "meters": 197
+      },
+      {
+        "kind": "bus",
+        "minutes": 18,
+        "from": "아산축협온천지점",
+        "to": "외암3리",
+        "lines": [
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "16"
+        ],
+        "stations": 4
+      },
+      {
+        "kind": "walk",
+        "minutes": 11,
+        "meters": 703
+      }
+    ]
+  },
+  "외암민속마을 → 곡교천 은행나무길": {
+    "kind": "transit",
+    "totalMinutes": 51,
+    "fare": 3000,
+    "transfers": 1,
+    "walkMeters": 905,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 10,
+        "meters": 692
+      },
+      {
+        "kind": "bus",
+        "minutes": 18,
+        "from": "외암3리",
+        "to": "온양온천역 유엘시티",
+        "lines": [
+          "22"
+        ],
+        "stations": 3
+      },
+      {
+        "kind": "bus",
+        "minutes": 20,
+        "from": "온양온천역 유엘시티",
+        "to": "송곡2리 마을길",
+        "lines": [
+          "970"
+        ],
+        "stations": 12
+      },
+      {
+        "kind": "walk",
+        "minutes": 3,
+        "meters": 213
+      }
+    ]
+  },
+  "외암민속마을 → 온양민속박물관": {
+    "kind": "transit",
+    "totalMinutes": 43,
+    "fare": 1500,
+    "transfers": 0,
+    "walkMeters": 1684,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 10,
+        "meters": 692
+      },
+      {
+        "kind": "bus",
+        "minutes": 18,
+        "from": "외암3리",
+        "to": "온양온천역 유엘시티",
+        "lines": [
+          "22"
+        ],
+        "stations": 3
+      },
+      {
+        "kind": "walk",
+        "minutes": 15,
+        "meters": 992
+      }
+    ]
+  },
+  "남산공원 → 이순신광장": {
+    "kind": "transit",
+    "totalMinutes": 18,
+    "fare": 1600,
+    "transfers": 0,
+    "walkMeters": 310,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 3,
+        "meters": 205
+      },
+      {
+        "kind": "bus",
+        "minutes": 13,
+        "from": "남산공원 입구",
+        "to": "이순신광장",
+        "lines": [
+          "999",
+          "111",
+          "109",
+          "106",
+          "111-1",
+          "100"
+        ],
+        "stations": 8
+      },
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 105
+      }
+    ]
+  },
+  "여문 문화의 거리 → 여서미관광장": {
+    "kind": "walk",
+    "totalMinutes": 15,
+    "meters": 864
+  },
+  "여서미관광장 → 여수 서시장": {
+    "kind": "transit",
+    "totalMinutes": 16,
+    "fare": 1600,
+    "transfers": 0,
+    "walkMeters": 279,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 3,
+        "meters": 186
+      },
+      {
+        "kind": "bus",
+        "minutes": 12,
+        "from": "여서청사 건너",
+        "to": "서시장 건너",
+        "lines": [
+          "555",
+          "555-1",
+          "83"
+        ],
+        "stations": 5
+      },
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 93
+      }
+    ]
+  },
+  "이순신광장 → 여문 문화의 거리": {
+    "kind": "transit",
+    "totalMinutes": 20,
+    "fare": 1600,
+    "transfers": 0,
+    "walkMeters": 243,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 132
+      },
+      {
+        "kind": "bus",
+        "minutes": 16,
+        "from": "하나은행",
+        "to": "문수동주민센터",
+        "lines": [
+          "80",
+          "82"
+        ],
+        "stations": 9
+      },
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 111
+      }
+    ]
+  },
+  "이순신광장 → 여서미관광장": {
+    "kind": "transit",
+    "totalMinutes": 19,
+    "fare": 1600,
+    "transfers": 0,
+    "walkMeters": 297,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 132
+      },
+      {
+        "kind": "bus",
+        "minutes": 15,
+        "from": "하나은행",
+        "to": "여서청사(해양수산청)",
+        "lines": [
+          "555",
+          "555-1",
+          "83"
+        ],
+        "stations": 7
+      },
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 165
+      }
+    ]
+  },
+  "영천 한우숯불단지 → 돌할매": {
+    "kind": "transit",
+    "totalMinutes": 56,
+    "fare": 1500,
+    "transfers": 0,
+    "walkMeters": 515,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 6,
+        "meters": 420
+      },
+      {
+        "kind": "bus",
+        "minutes": 49,
+        "from": "도남입구",
+        "to": "돌할매.관리",
+        "lines": [
+          "751",
+          "751-2"
+        ],
+        "stations": 26
+      },
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 95
+      }
+    ]
+  },
+  "영천한의마을 → 영천 한우숯불단지": {
+    "kind": "transit",
+    "totalMinutes": 43,
+    "fare": 3000,
+    "transfers": 1,
+    "walkMeters": 1235,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 10,
+        "meters": 690
+      },
+      {
+        "kind": "bus",
+        "minutes": 10,
+        "from": "한국폴리텍대학교",
+        "to": "영천터미널",
+        "lines": [
+          "6"
+        ],
+        "stations": 5
+      },
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 125
+      },
+      {
+        "kind": "bus",
+        "minutes": 15,
+        "from": "영천버스터미널(3번노선전용)",
+        "to": "도남입구",
+        "lines": [
+          "3"
+        ],
+        "stations": 8
+      },
+      {
+        "kind": "walk",
+        "minutes": 6,
+        "meters": 420
+      }
+    ]
+  },
+  "운주산 승마조련센터 → 영천 한우숯불단지": {
+    "kind": "transit",
+    "totalMinutes": 65,
+    "fare": 3000,
+    "transfers": 1,
+    "walkMeters": 745,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 10,
+        "meters": 665
+      },
+      {
+        "kind": "bus",
+        "minutes": 37,
+        "from": "황강공단",
+        "to": "영천농협",
+        "lines": [
+          "421",
+          "420",
+          "420-1"
+        ],
+        "stations": 20
+      },
+      {
+        "kind": "bus",
+        "minutes": 17,
+        "from": "영천농협",
+        "to": "도남동",
+        "lines": [
+          "112",
+          "111"
+        ],
+        "stations": 9
+      },
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 80
+      }
+    ]
+  },
+  "운주산 승마조련센터 → 영천한의마을": {
+    "kind": "transit",
+    "totalMinutes": 61,
+    "fare": 3000,
+    "transfers": 1,
+    "walkMeters": 802,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 10,
+        "meters": 665
+      },
+      {
+        "kind": "bus",
+        "minutes": 30,
+        "from": "황강공단",
+        "to": "청호아파트앞",
+        "lines": [
+          "420",
+          "420-1",
+          "421"
+        ],
+        "stations": 15
+      },
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 21
+      },
+      {
+        "kind": "bus",
+        "minutes": 18,
+        "from": "청호아파트건너",
+        "to": "한의마을(중앙자동차학원건너)",
+        "lines": [
+          "7-1"
+        ],
+        "stations": 9
+      },
+      {
+        "kind": "walk",
+        "minutes": 2,
+        "meters": 116
+      }
+    ]
+  },
+  "조양각 → 영천 한우숯불단지": {
+    "kind": "transit",
+    "totalMinutes": 24,
+    "fare": 1500,
+    "transfers": 0,
+    "walkMeters": 146,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 66
+      },
+      {
+        "kind": "bus",
+        "minutes": 22,
+        "from": "영천문화원",
+        "to": "도남동",
+        "lines": [
+          "111",
+          "112"
+        ],
+        "stations": 12
+      },
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 80
+      }
+    ]
+  },
+  "조양각 → 운주산 승마조련센터": {
+    "kind": "transit",
+    "totalMinutes": 57,
+    "fare": 1500,
+    "transfers": 0,
+    "walkMeters": 974,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 7,
+        "meters": 452
+      },
+      {
+        "kind": "bus",
+        "minutes": 42,
+        "from": "대구은행건너",
+        "to": "효1리",
+        "lines": [
+          "420",
+          "420-1",
+          "421"
+        ],
+        "stations": 25
+      },
+      {
+        "kind": "walk",
+        "minutes": 8,
+        "meters": 522
+      }
+    ]
+  },
+  "고석정 → 직탕폭포": {
+    "kind": "transit",
+    "totalMinutes": 32,
+    "fare": 1550,
+    "transfers": 0,
+    "walkMeters": 1280,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 5,
+        "meters": 340
+      },
+      {
+        "kind": "bus",
+        "minutes": 13,
+        "from": "고석정",
+        "to": "장흥3리",
+        "lines": [
+          "1-1",
+          "1"
+        ],
+        "stations": 4
+      },
+      {
+        "kind": "walk",
+        "minutes": 14,
+        "meters": 940
+      }
+    ]
+  },
+  "직탕폭포 → 비무장지대 평화의 길 백마고지 코스": {
+    "kind": "transit",
+    "totalMinutes": 67,
+    "fare": 3100,
+    "transfers": 1,
+    "walkMeters": 1730,
+    "steps": [
+      {
+        "kind": "walk",
+        "minutes": 16,
+        "meters": 1055
+      },
+      {
+        "kind": "bus",
+        "minutes": 18,
+        "from": "장흥3리",
+        "to": "화지10리",
+        "lines": [
+          "1-1"
+        ],
+        "stations": 5
+      },
+      {
+        "kind": "walk",
+        "minutes": 1,
+        "meters": 9
+      },
+      {
+        "kind": "bus",
+        "minutes": 22,
+        "from": "화지10리",
+        "to": "대마리",
+        "lines": [
+          "13"
+        ],
+        "stations": 4
+      },
+      {
+        "kind": "walk",
+        "minutes": 10,
+        "meters": 666
+      }
+    ]
+  }
+}
