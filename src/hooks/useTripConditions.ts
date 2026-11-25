@@ -57,9 +57,12 @@ export function useTripConditions(totalSteps: number) {
     setParams(toSearchParams({ ...conditions, ...patch }, step), { replace: true })
   }
 
-  /** 다른 단계로 이동한다 (뒤로 가기로 돌아올 수 있게 기록을 쌓음) */
-  const goTo = (next: number) => {
-    setParams(toSearchParams(conditions, next))
+  /**
+   * 다른 단계로 이동한다 (뒤로 가기로 돌아올 수 있게 기록을 쌓음).
+   * patch: 방금 고른 값. 자동으로 넘어갈 때 아직 주소에 반영되기 전 값을 함께 넘긴다.
+   */
+  const goTo = (next: number, patch: PartialTripConditions = {}) => {
+    setParams(toSearchParams({ ...conditions, ...patch }, next))
   }
 
   return { conditions, step, update, goTo }
