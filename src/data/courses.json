@@ -33,7 +33,17 @@
             "불국사 인근의 불국공원의 경우 반려동물과 함께 산책 가능"
           ]
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/70/3506170_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/70/3506170_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "054-746-9913"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "09:00~18:00 (입장 마감 17:00)",
+          "homepage": "http://www.bulguksa.or.kr"
+        }
       },
       {
         "order": 2,
@@ -50,7 +60,17 @@
           "parking": "지상에 5면 있음",
           "elevator": "엘리베이터 있음"
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/64/2992064_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/64/2992064_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "054-775-1333"
+            }
+          ],
+          "restDays": "점포 별로 상이함",
+          "hours": "점포 별로 상이함",
+          "homepage": "https://blog.naver.com/gjr2022/인스타그램"
+        }
       },
       {
         "order": 3,
@@ -80,7 +100,16 @@
           "parking": "장애인 주차장 있음(공영주차장)",
           "elevator": "엘리베이터 있음(공영주차장)"
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/69/3530969_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/69/3530969_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "054-772-4226"
+            }
+          ],
+          "restDays": "점포별로 상이함",
+          "hours": "07:00~20:00 * 점포별로 상이함"
+        }
       },
       {
         "order": 5,
@@ -137,7 +166,17 @@
             "배변봉투 지참 및 배변처리 필수"
           ]
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/07/3351107_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/07/3351107_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "061-661-1746"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "상시 개방",
+          "homepage": "http://www.yeosu.go.kr/tour"
+        }
       },
       {
         "order": 3,
@@ -175,7 +214,17 @@
         "barrierFree": {
           "route": "출입구까지 턱이 없어 휠체어 접근 가능함"
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/67/3580367_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/67/3580367_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "label": "서시장 번영회",
+              "phone": "061-642-6720"
+            }
+          ],
+          "hours": "06:00 ~ 20:00",
+          "homepage": "http://blog.naver.com/ysssj1064여수관광문화"
+        }
       }
     ]
   },
@@ -198,7 +247,18 @@
         "lng": 128.932980251832,
         "placeUrl": "http://place.map.kakao.com/8447240",
         "tourContentId": "126932",
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/29/4094529_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/29/4094529_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "label": "영천시청 문화예술과",
+              "phone": "054-330-6381"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "상시개방",
+          "homepage": "https://www.yc.go.kr/tour"
+        }
       },
       {
         "order": 2,
@@ -217,7 +277,17 @@
           "restroom": "장애인 화장실 있음(장애인 주차구역 앞 야외화장실)",
           "parking": "장애인 주차장 있음(5대,방문자안내소 앞)"
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/78/3502678_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/78/3502678_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "054-330-2770"
+            }
+          ],
+          "restDays": "매주 월요일(7~8월 제외)\n※ 단, 월요일이 공휴일인 경우 정상운영",
+          "hours": "[일일개장]\n하절기(3월~10월) 09:00~19:00\n동절기(11월~2월) 09:00~18:00[숙박시설]\n입실 15:00\n퇴실 11:00",
+          "homepage": "https://www.foresttrip.go.kr"
+        }
       },
       {
         "order": 3,
@@ -238,7 +308,17 @@
           "parking": "장애인 주차장 있음",
           "elevator": "엘리베이터 있음"
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/90/4060190_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/90/4060190_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "054-330-2750"
+            }
+          ],
+          "restDays": "매주 월요일 (단, 월요일이 공휴일인 경우 그 다음날 휴관) / 1월 1일 / 설·추석",
+          "hours": "하절기(3월~10월) 10:00~18:00 (매표 마감 17:00)\n동절기(11월~2월) 10:00~17:00 (매표 마감 16:00)",
+          "homepage": "https://www.yc.or.kr"
+        }
       },
       {
         "order": 4,
@@ -263,7 +343,17 @@
         "phone": "054-338-8879",
         "placeUrl": "http://place.map.kakao.com/15918971",
         "tourContentId": "126933",
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/73/4122873_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/73/4122873_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "054-338-8879"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "07:00~22:00",
+          "homepage": "http://www.yc.go.kr/tour/main.do"
+        }
       }
     ]
   },
@@ -312,7 +402,26 @@
             "배변봉투 지참 및 배변처리 필수"
           ]
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/59/4071759_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/59/4071759_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "label": "매표요금",
+              "phone": "041-536-8499"
+            },
+            {
+              "label": "관광안내/관광마을해설",
+              "phone": "041-540-2110"
+            },
+            {
+              "label": "체험/민박",
+              "phone": "041-541-0848"
+            }
+          ],
+          "restDays": "연중무휴 (단, 매주 월요일 민속관 등 일부시설 휴관)",
+          "hours": "하절기 09:00~18:00\n동절기 09:00~17:00",
+          "homepage": "http://www.oeam.co.kr"
+        }
       },
       {
         "order": 3,
@@ -332,7 +441,18 @@
           "restroom": "장애인 화장실 있음",
           "parking": "장애인 주차장 있음(3대/정문 앞)"
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/80/3558580_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/80/3558580_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "041-542-6001"
+            }
+          ],
+          "restDays": "매주 월요일 (단, 월요일이 공휴일일 경우 개관) / 1월 1일 / 설·추석 당일",
+          "hours": "10:00~17:30 (매표 마감 16:30)",
+          "fee": "일반 8,000원\n청소년 5,000원\n초등학생/유치원 4,000원\n경로(만 65세 이상) 3,000원\n장애인 1,000원",
+          "homepage": "http://www.onyangmuseum.or.kr"
+        }
       },
       {
         "order": 4,
@@ -357,7 +477,18 @@
             "배변봉투 지참 및 배변처리 필수"
           ]
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/67/3098767_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/67/3098767_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "label": "아산시 콜센터",
+              "phone": "1422-42"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "상시 개방",
+          "homepage": "https://tour.asan.go.kr/"
+        }
       }
     ]
   },
@@ -388,7 +519,17 @@
             "배변봉투 지참 및 배변처리 필수"
           ]
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/67/3351667_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/67/3351667_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "033-450-5558"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "상시 개방",
+          "homepage": "http://www.hantangeopark.kr/"
+        }
       },
       {
         "order": 2,
@@ -410,7 +551,18 @@
             "배변봉투 지참 및 배변처리 필수"
           ]
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/28/4121328_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/28/4121328_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "label": "한탄강지질공원 방문자센터",
+              "phone": "033-450-4810"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "상시 개방",
+          "homepage": "https://www.hantangeopark.kr/"
+        }
       },
       {
         "order": 3,
@@ -423,7 +575,28 @@
         "lng": 127.164964432568,
         "placeUrl": "http://place.map.kakao.com/12697191",
         "tourContentId": "3445835",
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/88/3446288_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/88/3446288_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "label": "DMZ 평화의 길 테마노선 고객센터 (신청접수 관련 문의)",
+              "phone": "1588-7417"
+            }
+          ],
+          "restDays": "매주 화요일, 수요일\n※ 기상/안보 등 특이상황 발생 시, 갑자기 투어가 취소 되거나 대체 일정으로 운영될 수 있음",
+          "hours": "10:00 / 14:00\n※ 최종 방문 확정 인원이 5명 이상인 경우에만 투어 운영 (4명 이하인 경우, 해당 일정 투어 운영 자동 취소)",
+          "homepage": "https://www.durunubi.kr/",
+          "reservation": {
+            "url": "https://www.durunubi.kr/",
+            "phone": "1588-7417",
+            "notes": [
+              "10:00 / 14:00",
+              "※ 최종 방문 확정 인원이 5명 이상인 경우에만 투어 운영 (4명 이하인 경우, 해당 일정 투어 운영 자동 취소)",
+              "회차별 20명 정원",
+              "만 7세 이상 참가 가능 (신분증 지참 / 미성년자에 한해 가족관계증명서로 대체)"
+            ]
+          }
+        }
       }
     ]
   },
@@ -458,7 +631,18 @@
             "배변봉투 지참 및 배변처리 필수"
           ]
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/29/4129629_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/29/4129629_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "label": "송파구청 문화유산과",
+              "phone": "02-2147-2608"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "상시 개방",
+          "homepage": "https://www.songpa.go.kr/culture"
+        }
       },
       {
         "order": 2,
@@ -471,7 +655,18 @@
         "lng": 127.110416326514,
         "placeUrl": "http://place.map.kakao.com/540607897",
         "tourContentId": "2994877",
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/19/2995119_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/19/2995119_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "label": "송파관광정보센터",
+              "phone": "02-2147-2109"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "상시 개방",
+          "homepage": "https://korean.visitseoul.net/"
+        }
       },
       {
         "order": 3,
@@ -484,7 +679,17 @@
         "lng": 127.13138538549909,
         "placeUrl": "http://place.map.kakao.com/8491685",
         "tourContentId": "754063",
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/89/3526789_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/89/3526789_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "02-400-0978"
+            }
+          ],
+          "restDays": "연중무휴",
+          "hours": "상시 개방",
+          "homepage": "https://parks.seoul.go.kr"
+        }
       },
       {
         "order": 4,
@@ -511,7 +716,17 @@
         "barrierFree": {
           "route": "출입구까지 턱이 없어 휠체어 접근 가능함"
         },
-        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/70/3474770_image2_1.jpg"
+        "imageUrl": "https://tong.visitkorea.or.kr/cms/resource/70/3474770_image2_1.jpg",
+        "visitInfo": {
+          "contacts": [
+            {
+              "phone": "02-413-2100"
+            }
+          ],
+          "restDays": "점포별로 상이함",
+          "hours": "점포별로 상이함",
+          "homepage": "https://blog.naver.com/bangesigang공식인스타그램"
+        }
       }
     ]
   }
