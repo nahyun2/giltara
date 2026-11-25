@@ -33,7 +33,9 @@ export default function TripPlanPage() {
   const { courseId } = useParams()
   const navigate = useNavigate()
   const course = courses.find((c) => c.id === courseId)
-  const { conditions, step, update, goTo } = useTripConditions(TOTAL_STEPS)
+  const { conditions, step, editing, nextStep, update, goTo } = useTripConditions(TOTAL_STEPS)
+  // 고치는 중에는 이전 버튼 없이 "수정 완료"만 둔다
+  const showPrev = step > 1 && !editing
   const autoNextTimer = useRef<number | undefined>(undefined)
 
   // 단계가 바뀌면 맨 위에서 시작하고, 기다리던 자동 넘김은 취소한다
@@ -46,7 +48,7 @@ export default function TripPlanPage() {
   const chooseAndNext = (patch: Parameters<typeof update>[0]) => {
     update(patch)
     window.clearTimeout(autoNextTimer.current)
-    autoNextTimer.current = window.setTimeout(() => goTo(step + 1, patch), AUTO_NEXT_DELAY)
+    autoNextTimer.current = window.setTimeout(() => goTo(nextStep, patch), AUTO_NEXT_DELAY)
   }
 
   if (!course) return <Navigate to="/" replace />
@@ -185,7 +187,7 @@ export default function TripPlanPage() {
               </div>
               <button
                 type="button"
-                onClick={() => goTo(row.step)}
+                onClick={() => goTo(row.step, {}, true)}
                 className="h-touch shrink-0 rounded-lg px-3 text-body font-bold text-primary underline underline-offset-4 focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark"
               >
                 고치기<span className="sr-only"> ({row.label})</span>
@@ -199,11 +201,17 @@ export default function TripPlanPage() {
 
   const current = steps[step]
   const isLast = step === TOTAL_STEPS
+  // 고치는 중이면 어디로 돌아가는지 알려준다
+  const hint = editing
+    ? step === 4
+      ? '고친 뒤 아래 수정 완료를 누르면 확인 화면으로 돌아가요.'
+      : '고르면 바로 확인 화면으로 돌아가요.'
+    : current.hint
 
   const handleNext = () => {
     if (!current.canNext) return
     if (!isLast) {
-      goTo(step + 1)
+      goTo(nextStep)
       return
     }
     if (isComplete(conditions)) {
@@ -241,7 +249,7 @@ export default function TripPlanPage() {
         <h1 id="step-question" className="text-screen-title font-bold text-text">
           {current.question}
         </h1>
-        {current.hint && <p className="text-body text-text-sub">{current.hint}</p>}
+        {hint && <p className="text-body text-text-sub">{hint}</p>}
         {current.body}
       </section>
 
@@ -253,7 +261,7 @@ export default function TripPlanPage() {
         )}
         {/* 이전 1칸 : 다음 2칸 */}
         <div className="grid grid-cols-3 gap-3">
-          {step > 1 && (
+          {showPrev && (
             <button type="button" onClick={() => goTo(step - 1)} className={SECONDARY_BUTTON}>
               <Icon name="back" className="size-6" />
               이전
@@ -263,13 +271,13 @@ export default function TripPlanPage() {
             type="button"
             onClick={handleNext}
             disabled={!current.canNext}
-            className={`${PRIMARY_BUTTON} ${step > 1 ? 'col-span-2' : 'col-span-3'} ${
+            className={`${PRIMARY_BUTTON} ${showPrev ? 'col-span-2' : 'col-span-3'} ${
               current.canNext
                 ? 'bg-primary text-on-color hover:bg-primary-dark active:scale-[0.98]'
                 : 'cursor-not-allowed bg-chip text-text-sub shadow-none'
             }`}
           >
-            {isLast ? '맞춤 코스 만들기' : '다음'}
+            {isLast ? '맞춤 코스 만들기' : editing ? '수정 완료' : '다음'}
             <Icon name="arrow" className="size-6" />
           </button>
         </div>

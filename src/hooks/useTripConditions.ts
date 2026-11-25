@@ -51,21 +51,32 @@ export function useTripConditions(totalSteps: number) {
   const conditions = parseConditions(params)
   const rawStep = Number(params.get('step'))
   const step = Number.isInteger(rawStep) && rawStep >= 1 && rawStep <= totalSteps ? rawStep : 1
+  /** 확인 단계에서 "고치기"로 들어온 상태. 고르면 다음 단계가 아니라 확인 단계로 돌아간다 */
+  const editing = params.get('edit') === '1' && step < totalSteps
+
+  const withEdit = (p: URLSearchParams, edit: boolean) => {
+    if (edit) p.set('edit', '1')
+    return p
+  }
 
   /** 같은 단계에서 고른 값을 바꾼다 (기록을 쌓지 않음) */
   const update = (patch: PartialTripConditions) => {
-    setParams(toSearchParams({ ...conditions, ...patch }, step), { replace: true })
+    setParams(withEdit(toSearchParams({ ...conditions, ...patch }, step), editing), { replace: true })
   }
 
   /**
    * 다른 단계로 이동한다 (뒤로 가기로 돌아올 수 있게 기록을 쌓음).
    * patch: 방금 고른 값. 자동으로 넘어갈 때 아직 주소에 반영되기 전 값을 함께 넘긴다.
+   * edit: 확인 단계에서 "고치기"로 들어갈 때 true
    */
-  const goTo = (next: number, patch: PartialTripConditions = {}) => {
-    setParams(toSearchParams({ ...conditions, ...patch }, next))
+  const goTo = (next: number, patch: PartialTripConditions = {}, edit = false) => {
+    setParams(withEdit(toSearchParams({ ...conditions, ...patch }, next), edit))
   }
 
-  return { conditions, step, update, goTo }
+  /** 지금 단계를 마치고 갈 곳: 고치는 중이면 확인 단계, 아니면 다음 단계 */
+  const nextStep = editing ? totalSteps : step + 1
+
+  return { conditions, step, editing, nextStep, update, goTo }
 }
 
 /* ---------- 날짜 ---------- */
