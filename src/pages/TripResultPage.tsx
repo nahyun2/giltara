@@ -1,27 +1,22 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { Link, Navigate, useParams, useSearchParams } from 'react-router'
-import Icon from '../components/Icon'
+import AccessInfo from '../components/AccessInfo'
+import CourseMap from '../components/CourseMap'
+import Icon, { type IconName } from '../components/Icon'
+import PlaceCard from '../components/PlaceCard'
 import { courses } from '../data/courses'
 import { planCourse, useCourseReason } from '../hooks/useCustomCourse'
 import { formatDate, isComplete, parseConditions, toSearchParams } from '../hooks/useTripConditions'
 import type { Course } from '../types/course'
-import {
-  CHECK_ITEM_LABEL,
-  DROP_REASON_LABEL,
-  PEOPLE_MAX,
-  TRANSPORT_LABEL,
-  type TripConditions,
-} from '../types/trip'
+import { DROP_REASON_LABEL, PEOPLE_MAX, TRANSPORT_LABEL, type TripConditions } from '../types/trip'
 
-/**
- * 맞춤 코스 결과 화면.
- * #20: 규칙 기반으로 고른 코스와 Gemini 추천 이유를 보여준다. 화면 디자인은 #21에서 다듬는다.
- */
+/** 맞춤 코스 결과: 추천 이유 → 지도 → 가는 순서(이동 시간) → 뺀 곳 */
 export default function TripResultPage() {
   const { courseId } = useParams()
   const [params] = useSearchParams()
   const course = courses.find((c) => c.id === courseId)
-  const conditions = parseConditions(params)
+  // 주소가 바뀔 때만 새로 만든다 (지도·추천 이유가 렌더마다 다시 그려지지 않게)
+  const conditions = useMemo(() => parseConditions(params), [params])
 
   if (!course) return <Navigate to="/" replace />
   // 조건이 빠졌으면 조건 입력의 확인 단계로 보낸다
@@ -34,13 +29,24 @@ export default function TripResultPage() {
 
 function Result({ course, conditions }: { course: Course; conditions: TripConditions }) {
   const plan = useMemo(() => planCourse(course, conditions), [course, conditions])
+  // 결과 화면에서는 고른 장소만 1번부터 다시 번호를 매긴다 (지도 마커도 같은 번호)
+  const numbered = useMemo(() => plan.places.map((p, i) => ({ ...p, order: i + 1 })), [plan])
   const reason = useCourseReason(course, plan, conditions)
 
-  const people = conditions.people === PEOPLE_MAX ? `${PEOPLE_MAX}명 이상` : `${conditions.people}명`
-  const together = [conditions.wheelchair && '휠체어', conditions.pet && '반려견'].filter(Boolean).join('·')
-  const summary = [formatDate(conditions.date), people, TRANSPORT_LABEL[conditions.transport], together]
-    .filter(Boolean)
-    .join(' · ')
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [conditions])
+
+  const chips: { icon: IconName; label: string }[] = [
+    { icon: 'calendar', label: formatDate(conditions.date) },
+    {
+      icon: 'people',
+      label: conditions.people === PEOPLE_MAX ? `${PEOPLE_MAX}명 이상` : `${conditions.people}명`,
+    },
+    { icon: conditions.transport === 'car' ? 'car' : 'bus', label: TRANSPORT_LABEL[conditions.transport] },
+    ...(conditions.wheelchair ? [{ icon: 'wheelchair' as const, label: '휠체어' }] : []),
+    ...(conditions.pet ? [{ icon: 'paw' as const, label: '반려견' }] : []),
+  ]
 
   return (
     <div className="mx-auto flex min-h-screen w-full max-w-page flex-col gap-6 px-4 pt-5 pb-12">
@@ -52,66 +58,82 @@ function Result({ course, conditions }: { course: Course; conditions: TripCondit
         조건 고치기
       </Link>
 
-      <header className="flex flex-col gap-2">
-        <p className="text-caption text-text-sub">{summary}</p>
+      <header className="flex flex-col gap-3">
+        <p className="inline-flex items-center gap-1.5 self-start rounded-lg bg-accent px-3 py-1 text-caption font-bold text-on-color">
+          <Icon name="tv" className="size-5" />
+          {course.program} {course.episode}회 · {course.city}
+        </p>
         <h1 className="text-screen-title font-bold text-text">{course.title}</h1>
+        <ul aria-label="고른 조건" className="flex flex-wrap gap-2">
+          {chips.map((chip) => (
+            <li
+              key={chip.label}
+              className="inline-flex items-center gap-1.5 rounded-full bg-chip px-3 py-1 text-caption font-bold text-text"
+            >
+              <Icon name={chip.icon} className="size-5 text-primary" />
+              {chip.label}
+            </li>
+          ))}
+        </ul>
       </header>
 
-      <section aria-label="추천 이유" className="rounded-2xl bg-card p-5 shadow-md">
-        <p className="text-body text-text">{reason.text}</p>
+      <section aria-labelledby="reason-heading" className="flex flex-col gap-2 rounded-2xl bg-card p-5 shadow-md">
+        <h2 id="reason-heading" className="text-body font-bold text-primary">
+          이 코스를 추천하는 이유
+        </h2>
+        <p aria-live="polite" className="text-body text-text">
+          {reason.text}
+        </p>
+        {reason.fromAi && <p className="text-caption text-text-sub">AI가 쓴 글이에요. 자세한 내용은 아래 장소 정보를 확인해 주세요.</p>}
       </section>
 
-      <section aria-labelledby="plan-heading" className="flex flex-col gap-3">
-        <h2 id="plan-heading" className="text-card-title font-bold text-text">
-          가는 순서 <span className="text-primary">{plan.places.length}곳</span> · 이동 약 {plan.totalMinutes}분
+      <CourseMap places={numbered} />
+
+      <section aria-labelledby="plan-heading" className="flex flex-col gap-4">
+        <h2 id="plan-heading" className="text-screen-title font-bold text-text">
+          가는 순서 <span className="text-primary">{numbered.length}곳</span>
         </h2>
-        <ol className="flex flex-col gap-2">
-          {plan.places.map((place, i) => {
-            const check = plan.checks.find((c) => c.place === place)
-            return (
-              <li key={place.order} className="flex flex-col gap-2">
-                <div className="flex items-start gap-3 rounded-2xl bg-card p-4 shadow-md">
-                  <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-primary text-body font-bold text-on-color">
-                    {i + 1}
-                  </span>
-                  <div className="flex flex-col gap-1">
-                    <p className="text-card-title font-bold text-text">{place.name}</p>
-                    {check && (
-                      <p className="text-caption font-bold text-accent">
-                        확인 필요: {check.items.map((it) => CHECK_ITEM_LABEL[it]).join(', ')} 정보가 없어요
-                      </p>
-                    )}
-                  </div>
-                </div>
-                {plan.legs[i] && (
-                  <p className="pl-6 text-caption text-text-sub">
-                    ↓ {TRANSPORT_LABEL[conditions.transport]}로 약 {plan.legs[i].minutes}분
-                  </p>
-                )}
-              </li>
-            )
-          })}
+        <p className="-mt-2 text-body text-text-sub">
+          장소 사이 이동은 모두 합쳐 약 <strong className="text-text">{plan.totalMinutes}분</strong>이에요.
+        </p>
+        <ol className="flex flex-col">
+          {numbered.map((place, i) => (
+            <li key={place.order} className="flex flex-col">
+              <PlaceCard
+                place={place}
+                extra={<AccessInfo place={place} wheelchair={conditions.wheelchair} pet={conditions.pet} />}
+              />
+              {plan.legs[i] && (
+                <p className="flex items-center gap-2 py-3 pl-6 text-body text-text-sub">
+                  <span aria-hidden="true" className="h-8 border-l-2 border-dashed border-primary" />
+                  <Icon name={conditions.transport === 'car' ? 'car' : 'bus'} className="size-5 text-primary" />
+                  {TRANSPORT_LABEL[conditions.transport]}로 약 {plan.legs[i].minutes}분
+                </p>
+              )}
+            </li>
+          ))}
         </ol>
+        <p className="text-caption text-text-sub">
+          이동 시간은 장소 사이 거리로 어림한 값이에요. 실제 경로와 시간은 여행 당일 안내에서 확인할 수 있어요.
+        </p>
       </section>
 
       {plan.dropped.length > 0 && (
-        <section aria-labelledby="dropped-heading" className="flex flex-col gap-2">
-          <h2 id="dropped-heading" className="text-card-title font-bold text-text">
-            이번에 뺀 곳
+        <section aria-labelledby="dropped-heading" className="flex flex-col gap-2 rounded-2xl bg-chip p-5">
+          <h2 id="dropped-heading" className="text-body font-bold text-text">
+            방송에는 나왔지만 이번에 뺀 곳
           </h2>
           <ul className="flex flex-col gap-1 text-body text-text-sub">
             {plan.dropped.map((d) => (
               <li key={d.place.order}>
-                {d.place.name} — {DROP_REASON_LABEL[d.reason]}
+                <strong className="text-text">{d.place.name}</strong> — {DROP_REASON_LABEL[d.reason]}
               </li>
             ))}
           </ul>
         </section>
       )}
 
-      <p className="text-caption text-text-sub">
-        이동 시간은 장소 사이 거리로 어림한 값이에요. 실제 경로는 여행 당일 안내에서 확인해요.
-      </p>
+      {/* 다음 단계(예약 안내, Sprint 4) 버튼은 상세 화면처럼 화면 아래 고정 자리에 넣는다 */}
     </div>
   )
 }
