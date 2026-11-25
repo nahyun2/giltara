@@ -1,4 +1,4 @@
-import { PET_ALLOWANCE_LABEL, type BarrierFree, type Place } from '../types/course'
+import { PET_ALLOWANCE_LABEL, placePhone, type BarrierFree, type Place } from '../types/course'
 import Icon from './Icon'
 
 type Props = {
@@ -71,7 +71,7 @@ export default function AccessInfo({ place, wheelchair, pet }: Props) {
 
       {needCheck && (
         <p className="text-caption text-text-sub">
-          {place.phone ? '가기 전에 아래 전화하기로 물어보세요.' : '가기 전에 카카오맵에서 연락처를 찾아 물어보세요.'}
+          {placePhone(place) ? '가기 전에 아래 전화하기로 물어보세요.' : '가기 전에 카카오맵에서 연락처를 찾아 물어보세요.'}
         </p>
       )}
     </div>
