@@ -25,19 +25,21 @@ export type PartialTripConditions = Partial<TripConditions>
 /* ---------- 맞춤 코스 (#20) ---------- */
 
 /** 장소를 코스에서 뺀 이유 */
-export type DropReason = 'pet-not-allowed' | 'needs-check' | 'far'
+export type DropReason = 'closed' | 'pet-not-allowed' | 'needs-check' | 'far'
 
 export const DROP_REASON_LABEL: Record<DropReason, string> = {
+  closed: '고른 날에 쉬어요',
   'pet-not-allowed': '반려견 동반이 안 되는 곳이에요',
   'needs-check': '고른 조건에 맞는지 정보가 없어요',
   far: '다른 장소와 거리가 멀어요',
 }
 
 /** 고른 조건에 대해 정보가 없어 미리 확인해야 하는 것 */
-export type CheckItem = 'wheelchair' | 'pet'
+export type CheckItem = 'wheelchair' | 'pet' | 'rest'
 
 export const CHECK_ITEM_LABEL: Record<CheckItem, string> = {
   wheelchair: '휠체어 이용',
+  rest: '쉬는 날',
   pet: '반려견 동반',
 }
 
@@ -55,9 +57,11 @@ export type CustomCourse<P> = {
   legs: Leg[]
   totalMinutes: number
   /** 뺀 장소와 이유 */
-  dropped: { place: P; reason: DropReason }[]
+  dropped: { place: P; reason: DropReason; note?: string }[]
   /** 코스에 남았지만 미리 확인해야 하는 것 */
-  checks: { place: P; items: CheckItem[] }[]
+  checks: { place: P; items: CheckItem[]; restNote?: string }[]
+  /** 쉬는 곳을 빼서 하루 3곳보다 적어졌는지 */
+  tooFew: boolean
 }
 
 /** 인원 선택지. 마지막 값은 "이상"으로 표시한다 */
