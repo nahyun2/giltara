@@ -4,6 +4,7 @@ import Icon from '../components/Icon'
 import RouteSteps from '../components/RouteSteps'
 import { courses } from '../data/courses'
 import { planCourse } from '../hooks/useCustomCourse'
+import { directionsBetween, directionsTo } from '../services/kakaoDirections'
 import { formatDate, isComplete, parseConditions, toSearchParams } from '../hooks/useTripConditions'
 import type { Course } from '../types/course'
 import { TRANSPORT_LABEL, type TripConditions } from '../types/trip'
@@ -51,6 +52,19 @@ function Route({ course, conditions }: { course: Course; conditions: TripConditi
         </p>
       </header>
 
+      {plan.places[0] && (
+        <section aria-labelledby="start-heading" className="flex flex-col gap-3 rounded-2xl bg-card p-5 shadow-md">
+          <h2 id="start-heading" className="text-body font-bold text-text">
+            출발할 때
+          </h2>
+          <p className="text-body text-text-sub">
+            지금 있는 곳에서 첫 장소 <strong className="text-text">{plan.places[0].name}</strong>까지 가는 길을
+            카카오맵에서 볼 수 있어요.
+          </p>
+          <MapLink href={directionsTo(plan.places[0])} label="첫 장소까지 길 찾기" />
+        </section>
+      )}
+
       <ol className="flex flex-col">
         {plan.places.map((place, i) => {
           const leg = plan.legs[i]
@@ -85,6 +99,14 @@ function Route({ course, conditions }: { course: Course; conditions: TripConditi
                   {leg.estimated && (
                     <p className="text-caption text-text-sub">거리로 어림한 시간이에요.</p>
                   )}
+                  <MapLink
+                    href={directionsBetween(
+                      place,
+                      plan.places[i + 1],
+                      leg.route?.kind === 'walk' ? 'walk' : conditions.transport === 'car' ? 'car' : 'traffic',
+                    )}
+                    label={conditions.transport === 'car' ? '카카오맵으로 길 찾기' : '카카오맵에서 지금 경로 보기'}
+                  />
                 </div>
               )}
             </li>
@@ -92,10 +114,29 @@ function Route({ course, conditions }: { course: Course; conditions: TripConditi
         })}
       </ol>
 
-      <p className="text-caption text-text-sub">
-        대중교통 경로는 미리 받아 둔 정보라 버스 도착 시간은 나오지 않아요. 노선이 바뀌었을 수 있으니 출발 전에 한 번 더
-        확인해 주세요.
-      </p>
+      {conditions.transport === 'transit' && (
+        <p className="text-caption text-text-sub">
+          대중교통 경로는 미리 받아 둔 정보라 버스 도착 시간은 나오지 않아요. 노선이 바뀌었을 수 있으니 출발 전에
+          카카오맵에서 한 번 더 확인해 주세요.
+        </p>
+      )}
     </div>
+  )
+}
+
+/** 카카오맵을 새 창으로 여는 보조 버튼. 좌표가 없는 장소면 그리지 않는다 */
+function MapLink({ href, label }: { href: string | undefined; label: string }) {
+  if (!href) return null
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-touch items-center justify-center gap-2 rounded-xl border-2 border-primary bg-card px-4 text-body font-bold text-primary hover:bg-bg focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-primary-dark"
+    >
+      <Icon name="map" className="size-5 shrink-0" />
+      {label}
+      <span className="sr-only">(카카오맵이 새 창으로 열려요)</span>
+    </a>
   )
 }
